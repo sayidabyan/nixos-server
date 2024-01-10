@@ -14,6 +14,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -76,6 +84,10 @@
   };
   services.mullvad-vpn.enable = true;
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
+  hardware.ledger.enable = true;
+  
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -113,6 +125,10 @@
     home.homeDirectory = "/home/sayid";
     home.stateVersion = "24.05";
     programs.home-manager.enable = true;
+    programs.obs-studio = {
+      enable = true;
+      plugins = [ pkgs.obs-studio-plugins.droidcam-obs ];
+    };
   };
 
   # List packages installed in system profile. To search, run:
