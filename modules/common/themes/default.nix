@@ -14,15 +14,15 @@
                 package = pkgs.papirus-icon-theme;
             };
             cursorTheme = {
-            name = "Numix-Cursor";
-            package = pkgs.numix-cursor-theme;
-            size = 24;
+                name = "Numix-Cursor";
+                package = pkgs.numix-cursor-theme;
+                size = 24;
             };
             theme = {
                 name = "Matcha-dark-pueril";
                 package = pkgs.matcha-gtk-theme.override { 
-                colorVariants = ["dark"];
-                themeVariants = ["pueril"];
+                    colorVariants = ["dark"];
+                    themeVariants = ["pueril"];
                 };
             };
             gtk3.extraConfig = {
