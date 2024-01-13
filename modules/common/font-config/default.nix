@@ -7,8 +7,6 @@
     packages = with pkgs; [nerdfonts font-awesome google-fonts ipafont];
   };
 
-  fonts.fontconfig.enable = true;
-
   # Flatpak font compatibility
   system.fsPackages = [ pkgs.bindfs ];
   fileSystems = let

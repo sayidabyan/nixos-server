@@ -2,13 +2,10 @@
 
 {
     home-manager.users.sayid = { pkgs, ... }: {
-        #   home.pointerCursor = {
-        #     gtk.enable = true;
-        #     package = pkgs.numix-cursor-theme;
-        #     name = "Numix-Cursor";
-        #   };
+        fonts.fontconfig.enable = true;
         gtk = {
             enable = true;
+            font.name = "MesloLGS Nerd Font";
             iconTheme = {
                 name = "Papirus";
                 package = pkgs.papirus-icon-theme;
@@ -41,10 +38,5 @@
             platformTheme = "gtk";
             style.name = "gtk2";
         };
-        #   dconf.settings = {
-        #     "org/gnome/desktop/interface" = {
-        #       color-scheme = "prefer-dark";
-        #     };
-        #   };
     };
 }
