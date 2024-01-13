@@ -11,8 +11,8 @@
                 package = pkgs.papirus-icon-theme;
             };
             cursorTheme = {
-                name = "Numix-Cursor";
-                package = pkgs.numix-cursor-theme;
+                name = "Bibata-Modern-Ice";
+                package = pkgs.bibata-cursors;
                 size = 24;
             };
             theme = {
