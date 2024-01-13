@@ -80,7 +80,7 @@
   users.users.sayid = {
     isNormalUser = true;
     description = "sayid";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     # packages = with pkgs; [
     #  firefox
     #  thunderbird
