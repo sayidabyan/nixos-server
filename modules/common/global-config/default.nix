@@ -103,6 +103,7 @@
       vscode
       neofetch
       speedtest-cli
+      tilix
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
