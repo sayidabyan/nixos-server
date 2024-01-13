@@ -18,7 +18,7 @@
     v4l2loopback
   ];
   boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1 hid_apple fnmode=2
   '';
   security.polkit.enable = true;
 
@@ -120,6 +120,7 @@
       ventoy
       vscode
       neofetch
+      speedtest-cli
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
