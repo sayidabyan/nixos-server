@@ -5,7 +5,7 @@
         fonts.fontconfig.enable = true;
         gtk = {
             enable = true;
-            font.name = "MesloLGS Nerd Font";
+            font.name = "BlexMono Nerd Font";
             iconTheme = {
                 name = "Papirus";
                 package = pkgs.papirus-icon-theme;
