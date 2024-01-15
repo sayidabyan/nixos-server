@@ -10,10 +10,38 @@
                 enable = true;
                 flavour = "mocha";
             };
-            clipboard.providers.wl-copy.enable = true;
+            clipboard = {
+                providers.wl-copy.enable = true;
+                register = [ "unnamed" "unnamedplus" ];
+            };
+            globals = {
+                mapleader = " ";
+                maplocalleader = " ";
+            };
             plugins = {
-                telescope.enable = true;
+	        lsp = {
+		    enable = true;
+                    servers = {
+                        pylsp.enable = true;
+		    };
+		};
+		nvim-cmp.enable = true;
+                telescope = {
+                    enable = true;
+                    keymaps = {
+                        "<leader>ff" = {
+                           action = "find_files";
+                           desc = "Find Files"; 
+                        };
+                        "<leader>gf" = {
+                           action = "git_files";
+                           desc = "Git Files"; 
+                        };
+                    };
+                };	        
                 treesitter.enable = true;
+		harpoon.enable = true;
+		gitsigns.enable = true;
             };
         };
     };
