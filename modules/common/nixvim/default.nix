@@ -29,7 +29,11 @@
 		    };
 		};
 		nvim-cmp.enable = true;
-                telescope = {
+		nvim-tree = {
+		    enable = true;
+		    openOnSetup = true;
+		};
+        	telescope = {
                     enable = true;
                     keymaps = {
                         "<leader>ff" = {
@@ -63,6 +67,7 @@
 		    previewer = false,
 		})
 		end, { desc = '[/] Fuzzily search in current buffer' })
+		vim.keymap.set('n', '<C-b>', require('nvim-tree.api').tree.toggle)
 	    '';
         };
     };
