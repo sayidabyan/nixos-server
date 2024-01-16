@@ -32,10 +32,11 @@
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 		
 		export PYENV_ROOT="$HOME/.pyenv"
+		[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+                eval "$(pyenv init -)"
             '';
             shellAliases = {
                 flake-update = "nix flake update ~/flake";
-		enter-ubuntu = "distrobox-enter --additional-flags '--env PATH=\"$PYENV_ROOT/bin:$PATH\"' ubuntu-box";
             };
         };
     };
