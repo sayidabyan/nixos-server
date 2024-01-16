@@ -31,7 +31,6 @@
 		nvim-cmp.enable = true;
 		nvim-tree = {
 		    enable = true;
-		    #openOnSetup = true;
 		};
         	telescope = {
                     enable = true;
