@@ -24,14 +24,14 @@
             plugins = {
 	        lsp = {
 		    enable = true;
-                    servers = {
-                        pylsp.enable = true;
-		    };
+                    #servers = {
+                    #    pylsp.enable = true;
+		    #};
 		};
 		nvim-cmp.enable = true;
 		nvim-tree = {
 		    enable = true;
-		    openOnSetup = true;
+		    #openOnSetup = true;
 		};
         	telescope = {
                     enable = true;
