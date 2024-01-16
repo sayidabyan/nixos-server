@@ -21,12 +21,22 @@
                 mapleader = " ";
                 maplocalleader = " ";
             };
+	    keymaps = [
+	        {
+		    action = ":Telescope harpoon marks<CR>";
+		    key = "<C-h>";
+		}
+	    ];
             plugins = {
 	        lsp = {
 		    enable = true;
                     #servers = {
                     #    pylsp.enable = true;
 		    #};
+		};
+		harpoon = {
+		    enable = true;
+		    enableTelescope = true;
 		};
 		nvim-cmp.enable = true;
 		nvim-tree = {
@@ -55,18 +65,24 @@
 		    openMapping = "<C-t>";
 		};
                 treesitter.enable = true;
-		harpoon.enable = true;
 		gitsigns.enable = true;
             };
 	    extraConfigLua = ''
-	        vim.keymap.set('n', '<leader>/', function()
-		-- You can pass additional configuration to telescope to change theme, layout, etc.
+	        vim.wo.relativenumber = true
+	        -- Telescope
+		vim.keymap.set('n', '<leader>/', function()
 		require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
 		    winblend = 10,
 		    previewer = false,
 		})
 		end, { desc = '[/] Fuzzily search in current buffer' })
+		-- Nvim-tree
 		vim.keymap.set('n', '<C-b>', require('nvim-tree.api').tree.toggle)
+		-- Harpoon
+	        vim.keymap.set('n', '<leader>hl', require('harpoon.ui').nav_next)
+	        vim.keymap.set('n', '<leader>hh', require('harpoon.ui').nav_prev)
+		vim.keymap.set('n', '<leader>hm', require('harpoon.mark').toggle_file)
+		vim.keymap.set('n', '<leader>ha', require('harpoon.mark').clear_all)
 	    '';
         };
     };
