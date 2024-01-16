@@ -64,8 +64,9 @@
 		    direction = "float";
 		    openMapping = "<C-t>";
 		};
-                treesitter.enable = true;
-		gitsigns.enable = true;
+		# bufferline.enable = true;
+               	gitsigns.enable = true;
+		treesitter.enable = true;
             };
 	    extraConfigLua = ''
 	        vim.wo.relativenumber = true
