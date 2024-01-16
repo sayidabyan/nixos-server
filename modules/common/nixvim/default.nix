@@ -1,9 +1,12 @@
-{inputs, ...}:
+{inputs, pkgs, ...}:
 
 {
-    home-manager.users.sayid = { ... }: {
+    home-manager.users.sayid = { pkgs, ... }: {
         imports = [inputs.nixvim.homeManagerModules.nixvim];
-        programs.nixvim = {
+        home.packages = with pkgs; [
+	    ripgrep
+	];
+	programs.nixvim = {
             enable = true;
             enableMan = true;
             colorschemes.catppuccin = {
@@ -37,8 +40,17 @@
                            action = "git_files";
                            desc = "Git Files"; 
                         };
+			"<leader>lg" = {
+			    action = "live_grep";
+			    desc = "Live Grep";
+			};
                     };
-                };	        
+                };
+		toggleterm = {
+		    enable = true;
+		    direction = "float";
+		    openMapping = "<C-t>";
+		};
                 treesitter.enable = true;
 		harpoon.enable = true;
 		gitsigns.enable = true;
