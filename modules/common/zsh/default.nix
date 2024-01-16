@@ -30,9 +30,12 @@
             initExtra = ''
                 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+		
+		export PYENV_ROOT="$HOME/.pyenv"
             '';
             shellAliases = {
-                flake-update = "nix flake update ~/flake";   
+                flake-update = "nix flake update ~/flake";
+		enter-ubuntu = "distrobox-enter --additional-flags '--env PATH=\"$PYENV_ROOT/bin:$PATH\"' ubuntu-box";
             };
         };
     };
