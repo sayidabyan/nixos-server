@@ -6,5 +6,6 @@
     dash-to-dock
     user-themes
     clipboard-indicator
+    freon
   ];
 }

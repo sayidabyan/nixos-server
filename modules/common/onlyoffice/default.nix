@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{...}:
 
 {  
     home-manager.users.sayid = { pkgs, ... }: {
