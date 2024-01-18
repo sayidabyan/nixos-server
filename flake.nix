@@ -57,6 +57,9 @@
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
         ];
+	xps13 = [
+	  inputs.nixos-hardware.nixosModules.dell-xps-13-9370
+	];
       };
     };
 }

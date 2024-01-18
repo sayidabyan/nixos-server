@@ -61,7 +61,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
   hardware.opengl.driSupport32Bit = true; # For 32 bit applications
   hardware.ledger.enable = true;
   

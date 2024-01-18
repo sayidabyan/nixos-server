@@ -30,11 +30,8 @@
             initExtra = ''
                 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-		
-		export PYENV_ROOT="$HOME/.pyenv"
-		[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-                eval "$(pyenv init -)"
-            '';
+
+	    '';
             shellAliases = {
                 flake-update = "nix flake update ~/flake";
             };
