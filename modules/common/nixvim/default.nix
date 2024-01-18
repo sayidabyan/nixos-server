@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{inputs, ...}:
 
 {
     home-manager.users.sayid = { pkgs, ... }: {
@@ -9,10 +9,7 @@
 	programs.nixvim = {
             enable = true;
             enableMan = true;
-            colorschemes.catppuccin = {
-                enable = true;
-                flavour = "mocha";
-            };
+            colorschemes.tokyonight.enable = true;
             clipboard = {
                 providers.wl-copy.enable = true;
                 register = [ "unnamed" "unnamedplus" ];
@@ -28,20 +25,57 @@
 		}
 	    ];
             plugins = {
-	        lsp = {
-		    enable = true;
-                    #servers = {
-                    #    pylsp.enable = true;
-		    #};
-		};
 		harpoon = {
 		    enable = true;
 		    enableTelescope = true;
 		};
-		nvim-cmp.enable = true;
-		nvim-tree = {
+		lualine = {
 		    enable = true;
+		    iconsEnabled = true;
 		};
+	        lsp = {
+		    enable = true;
+                    servers = {
+                        pylsp.enable = true;
+			nixd.enable = true;
+			html.enable = true;
+			lua-ls.enable = true;
+			cssls.enable = true;
+			bashls.enable = true;
+		    };
+		};
+		# Cmp
+		cmp-nvim-lsp.enable = true;
+		cmp_luasnip.enable = true;
+		cmp-omni.enable = true;
+		cmp-pandoc-nvim.enable = true;
+		cmp-pandoc-references.enable = true;
+		cmp-path.enable = true;
+		cmp-rg.enable = true;
+		cmp-snippy.enable = true;
+		cmp-spell.enable = true;
+		# cmp-tmux.enable = true;
+     		cmp-treesitter.enable = true;
+      		cmp-vim-lsp.enable = true;
+      		cmp-vimwiki-tags.enable = true;
+      		cmp-vsnip.enable = true;
+      		cmp-zsh.enable = true;
+		nvim-cmp = {
+		    enable = true;
+		    snippet.expand = "luasnip";
+      		    mappingPresets = ["insert"];
+      		    sources = [
+	    	        {name = "nvim_lsp";}
+	    	        {name = "luasnip"; }
+        	        {name = "buffer"; }
+        	        {name = "path"; }
+      		    ];
+      		    mapping = {
+        	        "<Tab>" = "cmp.mapping.confirm({ select = true })";
+      		    };
+		};
+
+		nvim-tree.enable = true;
         	telescope = {
                     enable = true;
                     keymaps = {
@@ -64,9 +98,15 @@
 		    direction = "float";
 		    openMapping = "<C-t>";
 		};
-		# bufferline.enable = true;
-               	gitsigns.enable = true;
-		treesitter.enable = true;
+		treesitter = {
+		    enable = true;
+		    ensureInstalled = "all";
+		};
+		# auto-save.enable = true;
+              	gitsigns.enable = true;
+		lsp-format.enable = true;
+		markdown-preview.enable = true;
+		nvim-colorizer.enable = true;
             };
 	    extraConfigLua = ''
 	        vim.wo.relativenumber = true
