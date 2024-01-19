@@ -74,7 +74,7 @@
   users.users.sayid = {
     isNormalUser = true;
     description = "sayid";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel"];
     # packages = with pkgs; [
     #  firefox
     #  thunderbird
