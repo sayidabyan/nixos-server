@@ -33,7 +33,7 @@
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 	    '';
             shellAliases = {
-                flake-update = "nix flake update ~/flake";
+                nixos-update = "nix flake update ~/nixos";
             };
         };
     };

@@ -5,7 +5,7 @@
     programs = {
         zsh = {
             shellAliases = {
-                flake-switch = "sudo nixos-rebuild switch --flake ~/flake#um790";
+                nixos-upgrade = "sudo nixos-rebuild switch --flake ~/nixos#um790";
             };
         };
     };
