@@ -33,10 +33,18 @@
                     '';
             };
         };
-        qt = {
+	qt = {
             enable = true;
             platformTheme = "gtk";
             style.name = "gtk2";
+        };
+        dconf.settings = {
+            "org/gnome/desktop/background" = {
+                picture-uri-dark = "/home/sayid/nixos/bg/path less traveled.jpg";
+            };
+            "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+            };
         };
     };
 }
