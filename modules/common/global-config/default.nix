@@ -57,6 +57,11 @@
     layout = "us";
     xkbVariant = "";
   };
+
+  # Enable android udev rules
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
   
   # Enable CUPS to print documents.
   services.printing.enable = true;
