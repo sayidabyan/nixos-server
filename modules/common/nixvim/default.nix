@@ -42,6 +42,7 @@
                         lua-ls.enable = true;
                         cssls.enable = true;
                         bashls.enable = true;
+			dartls.enable = true;
                     };
                 };
                 # Cmp
