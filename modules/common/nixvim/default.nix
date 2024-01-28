@@ -12,7 +12,7 @@
             colorschemes.tokyonight.enable = true;
             clipboard = {
                 providers.wl-copy.enable = true;
-                register = [ "unnamed" "unnamedplus" ];
+                register = "unnamedplus";
             };
             globals = {
                 mapleader = " ";
