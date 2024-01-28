@@ -32,6 +32,10 @@
 				expandtab = true;
 				smartindent = true;
 			};
+            extraPackages = with pkgs; [
+                vimPlugins.flutter-tools-nvim
+                vimPlugins.plenary-nvim
+            ];
 			plugins = {
 				harpoon = {
 					enable = true;
@@ -50,7 +54,6 @@
 						lua-ls.enable = true;
 						cssls.enable = true;
 						bashls.enable = true;
-						dartls.enable = true;
 					};
 				};
 				# Cmp
