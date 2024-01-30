@@ -98,6 +98,7 @@
       pavucontrol
       bottom
       htop
+      btop
       ventoy
       vscode
       neofetch
