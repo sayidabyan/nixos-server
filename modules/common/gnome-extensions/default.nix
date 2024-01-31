@@ -7,5 +7,6 @@
     user-themes
     clipboard-indicator
     freon
+    app-menu-is-back
   ];
 }
