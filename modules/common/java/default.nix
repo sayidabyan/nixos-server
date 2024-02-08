@@ -6,6 +6,7 @@
             temurin-bin-11
 	        maven
 	        eclipses.eclipse-java
+            jetbrains.idea-community
         ];
     };
 }

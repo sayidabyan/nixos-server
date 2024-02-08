@@ -100,7 +100,8 @@
       htop
       btop
       ventoy
-      vscode
+      vscode-fhs
+      vlc
       neofetch
       speedtest-cli
       tilix
