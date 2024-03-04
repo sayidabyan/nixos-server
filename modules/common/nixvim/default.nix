@@ -54,6 +54,7 @@
 						lua-ls.enable = true;
 						cssls.enable = true;
 						bashls.enable = true;
+                        java-language-server.enable = true;
 					};
 				};
 				# Cmp
@@ -134,6 +135,9 @@
 					vim.keymap.set('n', '<leader>hh', require('harpoon.ui').nav_prev)
 				vim.keymap.set('n', '<leader>hm', require('harpoon.mark').toggle_file)
 				vim.keymap.set('n', '<leader>ha', require('harpoon.mark').clear_all)
+                -- Jump to definition/declaration
+                vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+                vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 			'';
 		};
 	};
