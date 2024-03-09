@@ -108,6 +108,7 @@
       neofetch
       speedtest-cli
       tilix
+      transmission-gtk
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
