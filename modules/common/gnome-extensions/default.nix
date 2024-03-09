@@ -8,6 +8,7 @@
         clipboard-indicator
         freon
         app-menu-is-back
+        caffeine
     ];
     
     home-manager.users.sayid = { ... }: {
