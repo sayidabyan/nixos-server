@@ -8,13 +8,11 @@
         };
         nixos-hardware.url = "github:nixos/nixos-hardware/master";
         nixpkgs.url  = "github:nixos/nixpkgs/nixos-unstable";
-        nixvim = {
-            url = "github:nix-community/nixvim";
-        };
         agenix = {
             url = "github:ryantm/agenix";
             inputs.darwin.follows = "";
         };
+        aiken.url = "github:aiken-lang/aiken";
     };
     outputs = inputs:
     let
