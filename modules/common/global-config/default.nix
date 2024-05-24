@@ -7,6 +7,7 @@
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
@@ -16,6 +17,8 @@
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
   security.polkit.enable = true;
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   networking.hostName = "nixos-${device}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

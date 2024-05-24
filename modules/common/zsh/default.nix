@@ -9,7 +9,7 @@
             enable = true;
             syntaxHighlighting.enable = true;
             enableCompletion = true;
-            enableAutosuggestions = true;
+            autosuggestion.enable = true;
             autocd = true;
             oh-my-zsh.enable = true;
             plugins = [
