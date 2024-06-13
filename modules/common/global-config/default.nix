@@ -18,8 +18,6 @@
   '';
   security.polkit.enable = true;
 
-  systemd.services.NetworkManager-wait-online.enable = false;
-
   networking.hostName = "nixos-${device}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
