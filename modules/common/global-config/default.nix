@@ -52,9 +52,12 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    seahorse
-  ];
+  # environment.gnome.excludePackages = with pkgs.gnome; [
+  #   seahorse
+  # ];
+
+  # Fix Network Manager Error
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -96,6 +99,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
   home-manager.users.sayid = { pkgs, ... }: {
     home.packages = with pkgs; [
       brave

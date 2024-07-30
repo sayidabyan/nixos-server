@@ -5,7 +5,7 @@
         fonts.fontconfig.enable = true;
         gtk = {
             enable = true;
-            font.name = "BlexMono Nerd Font";
+            # font.name = "BlexMono Nerd Font";
             iconTheme = {
                 name = "Papirus";
                 package = pkgs.papirus-icon-theme;
@@ -33,7 +33,7 @@
                     '';
             };
         };
-	qt = {
+        qt = {
             enable = true;
             platformTheme.name = "gtk";
             style.name = "gtk2";
