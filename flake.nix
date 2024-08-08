@@ -13,6 +13,10 @@
             inputs.darwin.follows = "";
         };
         aiken.url = "github:aiken-lang/aiken";
+        nixos-cosmic = {
+          url = "github:lilyinstarlight/nixos-cosmic";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     outputs = inputs:
     let
@@ -20,6 +24,7 @@
         let
             nixpkgs = inputs.nixpkgs;
             home-manager = inputs.home-manager;
+            nixos-cosmic = inputs.nixos-cosmic;
             lib = nixpkgs.lib;
             modulesInDir = dir: (lib.trivial.pipe dir [
                 builtins.readDir
@@ -46,6 +51,13 @@
                     # Required for nixos-rebuild with flakes
                         environment.systemPackages = [ pkgs.git ];
                     })
+                    {
+                      nix.settings = {
+                        substituters = [ "https://cosmic.cachix.org/" ];
+                        trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+                      };
+                    }
+                    nixos-cosmic.nixosModules.default
                     home-manager.nixosModules.home-manager
                 ] ++ modules;
             }

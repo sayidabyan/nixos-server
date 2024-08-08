@@ -15,6 +15,7 @@
   ];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+    options hid_apple fnmode=0
   '';
   security.polkit.enable = true;
 
@@ -52,6 +53,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
+
   # environment.gnome.excludePackages = with pkgs.gnome; [
   #   seahorse
   # ];
@@ -114,6 +118,8 @@
       speedtest-cli
       tilix
       transmission-gtk
+      deno
+      bitwarden-desktop
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
@@ -123,14 +129,15 @@
       enable = true;
       plugins = [ pkgs.obs-studio-plugins.droidcam-obs ];
     };
+    programs.gh.enable = true;
   };
 
   # List packages installed in system profile. To search, run:
-   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # $ nix search wget
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
