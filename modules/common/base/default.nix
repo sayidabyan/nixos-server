@@ -35,17 +35,17 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
+#  i18n.extraLocaleSettings = {
+#   LC_ADDRESS = "en_US.UTF-8";
+#   LC_IDENTIFICATION = "en_US.UTF-8";
+#   LC_MEASUREMENT = "en_US.UTF-8";
+#   LC_MONETARY = "en_US.UTF-8";
+#   LC_NAME = "en_US.UTF-8";
+#   LC_NUMERIC = "en_US.UTF-8";
+#   LC_PAPER = "en_US.UTF-8";
+#   LC_TELEPHONE = "en_US.UTF-8";
+#   LC_TIME = "en_US.UTF-8";
+# };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -106,20 +106,21 @@
   home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
   home-manager.users.sayid = { pkgs, ... }: {
     home.packages = with pkgs; [
-      brave
-      pavucontrol
+      bitwarden-desktop
       bottom
-      htop
+      brave
       btop
-      ventoy
-      vscode-fhs
-      vlc
+      deno
+      htop
       neofetch
+      pavucontrol
       speedtest-cli
       tilix
       transmission-gtk
-      deno
-      bitwarden-desktop
+      ventoy
+      vlc
+      vscode-fhs
+
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";

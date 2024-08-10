@@ -1,6 +1,6 @@
 {...}:
 {
-  home-manager.users.sayid = {lib, pkgs, ...}: 
+  home-manager.users.sayid = { pkgs, ...}: 
   {
     home.packages = with pkgs; [
       wl-clipboard

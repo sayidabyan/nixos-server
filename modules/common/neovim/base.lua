@@ -7,7 +7,7 @@ vim.opt.undofile = true
 
 vim.opt.title = true
 vim.opt.smartcase = true
-vim.opt.clipboard:append({ 'unnamed', 'unnamedplus' })
+vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.ignorecase = true
 vim.opt.hidden = true
 
