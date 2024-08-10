@@ -1,6 +1,7 @@
 {...}:
 {
-  home-manager.users.sayid = {pkgs, ...}: {
+  home-manager.users.sayid = {lib, pkgs, ...}: 
+  {
     home.packages = with pkgs; [
       wl-clipboard
       file # https://github.com/nvim-telescope/telescope.nvim/pull/224/files
@@ -39,7 +40,8 @@
       lspkind-nvim
       luasnip
       copilot-vim
-     
+      editor-integration-nvim
+      
       {
         plugin = lualine-nvim;
         type = "lua";

@@ -226,3 +226,11 @@ vim.keymap.set('n', '<leader>fm', function()
   })
 end, { noremap = true, desc = '[F]ile [M]anager' })
 
+
+require'lspconfig'.aiken.setup{}
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.ak",
+  callback = function()
+    vim.lsp.buf.format({async = false})
+  end
+})
