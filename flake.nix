@@ -8,6 +8,8 @@
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixpkgs.url  = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.darwin.follows = "";
@@ -70,6 +72,10 @@
 
           nixpkgs.overlays = [
             (final: prev: {
+              unstable = import inputs.nixpkgs-unstable {
+                system = final.system;
+                config.allowUnfree = true;
+              };
               vimPlugins =
                 let
                   vimPlugin = name: final.vimUtils.buildVimPlugin {

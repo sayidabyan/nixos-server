@@ -101,6 +101,8 @@
 
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
+  # Enable normal binary execution(?)
+  programs.nix-ld.enable = true;
 
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
