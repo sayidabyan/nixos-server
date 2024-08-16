@@ -16,11 +16,8 @@
                 size = 24;
             };
             theme = {
-                name = "Matcha-dark-pueril";
-                package = pkgs.matcha-gtk-theme.override { 
-                    colorVariants = ["dark"];
-                    themeVariants = ["pueril"];
-                };
+                name = "rose-pine";
+                package = pkgs.rose-pine-gtk-theme;
             };
             gtk3.extraConfig = {
                 Settings = ''
@@ -40,7 +37,7 @@
         };
         dconf.settings = {
             "org/gnome/desktop/background" = {
-                picture-uri-dark = "/home/sayid/nixos/bg/Japan Pond.jpg";
+                picture-uri-dark = "/home/sayid/nixos/bg/Sakura Festival.jpg";
             };
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";

@@ -145,10 +145,24 @@
       }
 
       {
-        plugin = tokyonight-nvim;
+        plugin = rose-pine;
         type = "lua";
         config = ''
-          vim.cmd('colorscheme tokyonight')
+          vim.cmd('colorscheme rose-pine')
+        '';
+      } 
+      {
+        plugin = transparent-nvim;
+        type = "lua";
+        config = ''
+          require("transparent").setup({
+            extra_groups = {
+              "TelescopeNormal",
+              "TelescopeBorder",
+              "TelescopePromptBorder",
+              "TelescopePromptTitle",
+            };
+          })
         '';
       }
 
