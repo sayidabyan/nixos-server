@@ -112,16 +112,17 @@
       brave
       btop
       deno
+      fastfetch
       htop
       neofetch
       pavucontrol
+      rhythmbox
       speedtest-cli
       tilix
       transmission-gtk
       ventoy
       vlc
       vscode-fhs
-
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";

@@ -5,6 +5,9 @@
   };
 
   home-manager.users.sayid = {...}: {
+    systemd.user.sessionVariables = { 
+      GTK_THEME = "rose-pine";
+    };
     home.packages = with pkgs; [
       grim
       grimblast
@@ -12,9 +15,59 @@
       satty
       playerctl
       brightnessctl
+      nwg-look
+      hyprnome
     ];
     programs.wofi = {
       enable = true;
+    };
+    programs.hyprlock = {
+      enable = true;
+      settings = {
+        general = {
+          hide_cursor = true;
+        };
+        background = [
+          {
+            path = "/home/sayid/nixos/bg/Sakura Festival.jpg";
+            blur_passes = 3;
+            blur_size = 8;
+          }
+        ];
+        input-field = [
+          {
+            size = "250, 60";
+            outline_thickness = 2;
+            dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
+            dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
+            dots_center = true;
+            outer_color ="rgba(0, 0, 0, 0)";
+            inner_color ="rgba(30, 30, 46, 0.5)";
+            font_color = "rgb(200, 200, 200)";
+            fade_on_empty = false;
+            font_family = "FiraCode Nerd Font";
+            placeholder_text = ''
+            <i><span foreground="##ffffff99">Password</span></i>
+            '';
+            hide_input = false;
+            halign = "center";
+            valign = "center";
+          }
+        ];
+        # Hour-Time
+        label = [
+          {
+            text = "$USER";
+            color ="rgba(205, 214, 244, .75)";
+            font_size = 30;
+            font_family = "FiraCode Nerd Font";
+            position = "0, 40";
+            halign = "center";
+            valign = "center";
+          }
+        ];
+
+      };
     };
     programs.waybar = {
       enable = true;
@@ -30,7 +83,7 @@
           margin-right = 0;
           modules-left = ["custom/launcher" "hyprland/workspaces"];
           modules-center = ["clock"];
-          modules-right = ["cpu" "memory" "pulseaudio" "tray"];
+          modules-right = ["tray" "cpu" "memory" "pulseaudio"];
 
           clock = {
             calendar = {
@@ -45,16 +98,9 @@
             format = "{icon}";
             on-click = "activate";
             format-icons = {
-              "1" = "1";
-              "2" = "2";
-              "3" = "3";
-              "4" = "4";
-              "5" = "5";
-              "6" = "6";
-              "7" = "7";
-              "8" = "8";
-              "9" = "9";
-              "10" = "0";
+              active = "●";
+              default = "○";
+              special = "⦿";
               sort-by-number = true;
             };
           };
@@ -77,10 +123,10 @@
           };
 
           pulseaudio = {
-            format = "{icon}  {volume}%";
-            format-muted = "󰖁 ";
+            format = "{icon} {volume}%";
+            format-muted = "󰖁 0%";
             format-icons = {default = [" "];};
-            scroll-step = 5;
+            scroll-step = 2;
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
 
@@ -208,8 +254,8 @@
         };
         
         exec-once = [
+          "waybar"
           "hyprctl setcursor Bibata-Modern-Ice 24"
-          "hyprctl waybar"
         ];
 
         general = {
@@ -300,27 +346,21 @@
           "$mainMod CTRL, J, resizeactive, 0 -50"
 
           # Switch workspaces with mainMod + [0-9]
-          "SUPER, H, workspace, e-1"
-          "SUPER, L, workspace, e+1"
-          "SUPER, N, workspace, +1"
-          "SUPER, 1, workspace, 1"
-          "SUPER, 2, workspace, 2"
-          "SUPER, 3, workspace, 3"
-          "SUPER, 4, workspace, 4"
+          "SUPER, H, exec, hyprnome -p"
+          "SUPER, L, exec, hyprnome"
 
           # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "SUPER SHIFT, H, movetoworkspace, -1"
-          "SUPER SHIFT, L, movetoworkspace, +1"
-          "SUPER SHIFT, 1, movetoworkspace, 1"
-          "SUPER SHIFT, 2, movetoworkspace, 2"
-          "SUPER SHIFT, 3, movetoworkspace, 3"
-          "SUPER SHIFT, 4, movetoworkspace, 4"
+          "SUPER SHIFT, H, exec, hyprnome -p -m"
+          "SUPER SHIFT, L, exec, hyprnome -m"
 
           # Screenshot bind
           ", PRINT, exec, grimblast copysave screen"
           "CTRL, PRINT, exec, grimblast copysave area"
           "ALT, PRINT, exec, grimblast save area - | satty -f -"
           "SHIFT, PRINT, exec, grimblast copysave active"
+
+          # Lock screen
+          "SUPER, Q, exec, killall hyprlock; hyprlock "
         ];
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [
