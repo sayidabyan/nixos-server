@@ -4,10 +4,9 @@
     enable = true;
   };
 
+  services.blueman.enable = true;
+
   home-manager.users.sayid = {...}: {
-    systemd.user.sessionVariables = { 
-      GTK_THEME = "rose-pine";
-    };
     home.packages = with pkgs; [
       grim
       grimblast
@@ -15,9 +14,11 @@
       satty
       playerctl
       brightnessctl
-      nwg-look
+      unstable.nwg-look
       hyprnome
     ];
+    services.blueman-applet.enable = true;
+    services.network-manager-applet.enable = true;
     programs.wofi = {
       enable = true;
     };
@@ -150,7 +151,7 @@
         }
 
         window#waybar {
-            background: #1f1d2e;
+            background: #232136;
         }
 
         #workspaces {
@@ -244,7 +245,7 @@
         input = {
           sensitivity = "-0.1";
           accel_profile = "flat";
-          scroll_factor = "0.25";
+          scroll_factor = "0.5";
           follow_mouse = "0";
         };
 
@@ -280,7 +281,7 @@
             enabled = "true";
             size = "8";
             passes = "3";
-            popups = "true";
+            popups = "false";
             # too goofy looking
             # noise = "0.05";
             # contrast = "2";
@@ -298,7 +299,7 @@
             "border, 1, 5, default"
             "borderangle, 1, 5, default"
             "fade, 1, 5, default"
-            "workspaces, 1, 5, 1, slidefade 30%"
+            "workspaces, 1, 5, 1, slide"
           ];
         };
           
@@ -328,30 +329,30 @@
           "$mainMod SHIFT, M, fullscreen"
 
            # Move focus
-          "$mainMod, H, movefocus, l"
-          "$mainMod, L, movefocus, r"
-          "$mainMod, K, movefocus, u"
-          "$mainMod, J, movefocus, d"
+          "SUPER, H, movefocus, l"
+          "SUPER, L, movefocus, r"
+          "SUPER, K, movefocus, u"
+          "SUPER, J, movefocus, d"
 
           # Move window
-          "$mainMod SHIFT, H, movewindow, l"
-          "$mainMod SHIFT, L, movewindow, r"
-          "$mainMod SHIFT, K, movewindow, u"
-          "$mainMod SHIFT, J, movewindow, d"
+          "SUPER SHIFT, H, movewindow, l"
+          "SUPER SHIFT, L, movewindow, r"
+          "SUPER SHIFT, K, movewindow, u"
+          "SUPER SHIFT, J, movewindow, d"
 
           # Resize window
-          "$mainMod CTRL, H, resizeactive, -50 0"
-          "$mainMod CTRL, L, resizeactive, 50 0"
-          "$mainMod CTRL, K, resizeactive, 0 50"
-          "$mainMod CTRL, J, resizeactive, 0 -50"
+          "SUPER CTRL, H, resizeactive, -50 0"
+          "SUPER CTRL, L, resizeactive, 50 0"
+          "SUPER CTRL, K, resizeactive, 0 -50"
+          "SUPER CTRL, J, resizeactive, 0 50"
 
           # Switch workspaces with mainMod + [0-9]
-          "SUPER, H, exec, hyprnome -p"
-          "SUPER, L, exec, hyprnome"
+          "$mainMod, H, exec, hyprnome -p -n"
+          "$mainMod, L, exec, hyprnome"
 
           # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "SUPER SHIFT, H, exec, hyprnome -p -m"
-          "SUPER SHIFT, L, exec, hyprnome -m"
+          "$mainMod SHIFT, H, exec, hyprnome -p -m -n"
+          "$mainMod SHIFT, L, exec, hyprnome -m"
 
           # Screenshot bind
           ", PRINT, exec, grimblast copysave screen"

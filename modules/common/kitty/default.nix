@@ -1,16 +1,26 @@
 {...}:
 {
   home-manager.users.sayid = {...}: {
+    home.file.".config/kitty/current-theme.conf" = {
+      source = ./. + "/Rosé\ Pine\ Moon.conf";
+      recursive = true;
+    };
     programs.kitty = {
       enable = true;
       font.name = "Firacode Nerd Font";
       settings = {
         background_opacity = "0.8";
       };
-      shellIntegration.enableZshIntegration = true;
+      environment = {
+        "KITTY_ENABLE_WAYLAND" = "1";
+      };
       extraConfig = ''
-        linux_display_server x11
+        # BEGIN_KITTY_THEME
+        # Rosé Pine Moon
+        include current-theme.conf
+        # END_KITTY_THEME%      
       '';
+      shellIntegration.enableZshIntegration = true;
     };
   };
 }

@@ -28,6 +28,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -52,7 +55,7 @@
 
   # Enable the Desktop Environment/ Display Manager.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   # services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
   # environment.gnome.excludePackages = with pkgs.gnome; [
@@ -115,10 +118,10 @@
       fastfetch
       htop
       neofetch
+      cinnamon.nemo
       pavucontrol
       rhythmbox
       speedtest-cli
-      tilix
       transmission-gtk
       ventoy
       vlc
