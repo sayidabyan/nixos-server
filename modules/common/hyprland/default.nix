@@ -225,9 +225,6 @@
         preload = [
           "/home/sayid/nixos/bg/Sakura Festival.jpg"
         ];
-        wallpaper = [
-          "HDMI-A-1, /home/sayid/nixos/bg/Sakura Festival.jpg"
-        ];
       };
     };
     wayland.windowManager.hyprland = {
@@ -235,9 +232,6 @@
       xwayland.enable = true;
       settings = {
         "$mainMod" = "ALT";
-        monitor = [
-          "HDMI-A-1, 1920x1080@144, 0x0, 1"
-        ];
         #env =  [
         #  
         #];
