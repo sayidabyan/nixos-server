@@ -176,7 +176,7 @@
             color: #b4befe;
         }
 
-        #battery #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock {
+        #battery, #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock {
             font-size: 15px;
             color: #cdd6f4;
         }
