@@ -17,7 +17,11 @@
         input = {
           touchpad = {
             natural_scroll = true;
+            scroll_factor = 0.5;
           };
+        };
+        gestures = {
+          workspace_swipe = true;
         };
       };
     };

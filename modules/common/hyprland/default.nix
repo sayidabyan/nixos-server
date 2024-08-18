@@ -84,7 +84,13 @@
           margin-right = 0;
           modules-left = ["custom/launcher" "hyprland/workspaces"];
           modules-center = ["clock"];
-          modules-right = ["tray" "cpu" "memory" "pulseaudio"];
+          modules-right = ["tray" "battery" "cpu" "memory" "pulseaudio"];
+          
+          battery = {
+            bat = "BAT0";
+            "format" = "{icon}  {capacity}%";
+            "format-icons" = ["" "" "" "" ""];
+          };
 
           clock = {
             calendar = {
@@ -170,7 +176,7 @@
             color: #b4befe;
         }
 
-        #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock {
+        #battery #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock {
             font-size: 15px;
             color: #cdd6f4;
         }
@@ -308,9 +314,6 @@
           preserve_split = true;
         };
           
-        gestures = {
-          workspace_swipe = false;
-        };
         bind = [
           "$mainMod, T, exec, kitty"
           "$mainMod, Q, killactive" 
