@@ -55,12 +55,8 @@
 
   # Enable the Desktop Environment/ Display Manager.
   services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
   # services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
-  # environment.gnome.excludePackages = with pkgs.gnome; [
-  #   seahorse
-  # ];
 
   # Fix Network Manager Error
   systemd.services.NetworkManager-wait-online.enable = false;

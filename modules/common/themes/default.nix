@@ -38,13 +38,5 @@
       platformTheme.name = "gtk";
       style.name = "gtk2";
     };
-    dconf.settings = {
-      "org/gnome/desktop/background" = {
-        picture-uri-dark = "/home/sayid/nixos/bg/Sakura Festival.jpg";
-      };
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
   };
 }
