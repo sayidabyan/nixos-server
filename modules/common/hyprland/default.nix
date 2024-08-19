@@ -243,7 +243,6 @@
         #];
         
         input = {
-          sensitivity = "-0.1";
           accel_profile = "flat";
           scroll_factor = "0.5";
           follow_mouse = "0";

@@ -15,9 +15,10 @@
           "eDP-1, 1920x1080@60, 0x0, 1"
         ];
         input = {
+          sensitivity = 0.25;
           touchpad = {
             natural_scroll = true;
-            scroll_factor = 0.5;
+            scroll_factor = 0.25;
           };
         };
         gestures = {
