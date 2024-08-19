@@ -16,7 +16,6 @@
       };
       extraConfig = ''
         # BEGIN_KITTY_THEME
-        # Rosé Pine Moon
         include current-theme.conf
         # END_KITTY_THEME%      
       '';

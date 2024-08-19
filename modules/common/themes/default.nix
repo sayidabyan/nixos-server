@@ -5,6 +5,11 @@
     fonts.fontconfig.enable = true;
     gtk = {
       enable = true;
+      font = {
+        name = "Firacode Nerd Font";
+        size = 11;
+        package = pkgs.nerdfonts;
+      };
       iconTheme = {
         name = "Papirus";
         package = pkgs.papirus-icon-theme;
@@ -37,6 +42,14 @@
       enable = true;
       platformTheme.name = "gtk";
       style.name = "gtk2";
+    };
+    dconf.settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "/home/sayid/nixos/bg/Sakura Festival.jpg";
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
     };
   };
 }
