@@ -2,7 +2,7 @@
 {
   home-manager.users.sayid = {...}: {
     home.file.".config/kitty/current-theme.conf" = {
-      source = ./. + "/Rosé\ Pine\ Moon.conf";
+      source = ./Catppuccin-Mocha.conf;
       recursive = true;
     };
     programs.kitty = {

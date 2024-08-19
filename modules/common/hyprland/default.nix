@@ -157,7 +157,7 @@
         }
 
         window#waybar {
-            background: #232136;
+            background: #313244;
         }
 
         #workspaces {
@@ -263,7 +263,7 @@
           gaps_in = "4";
           gaps_out = "4";
           border_size = "2";
-          "col.active_border" = "rgb(ebbcba)";
+          "col.active_border" = "rgb(b4befe)";
           layout = "dwindle";
         };
 

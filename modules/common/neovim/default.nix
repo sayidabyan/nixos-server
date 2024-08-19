@@ -145,10 +145,10 @@
       }
 
       {
-        plugin = rose-pine;
+        plugin = catppuccin-nvim;
         type = "lua";
         config = ''
-          vim.cmd('colorscheme rose-pine-moon')
+          vim.cmd('colorscheme catppuccin-mocha')
         '';
       } 
       {
