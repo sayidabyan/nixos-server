@@ -83,7 +83,7 @@
           margin-left = 0;
           margin-right = 0;
           modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
-          modules-center = [ "custom/left" "hyprland/window" "custom/right"];
+          modules-center = [ "hyprland/window" ];
           modules-right = ["custom/left" "tray" "battery" "cpu" "memory" "pulseaudio" "clock" "custom/right"];
           
           battery = {
@@ -173,6 +173,14 @@
 
         window#waybar {
           background-color: transparent;
+        }
+
+        #window {
+         border-radius: 10px 10px 10px 10px;
+        }
+
+        window#waybar.empty #window {
+            background-color: transparent;
         }
 
         #workspaces {
