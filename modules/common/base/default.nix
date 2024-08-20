@@ -107,7 +107,7 @@
   home-manager.users.sayid = { pkgs, ... }: {
     home.packages = with pkgs; [
       bitwarden-desktop
-      bottom
+      unstable.bottom
       brave
       btop
       deno
