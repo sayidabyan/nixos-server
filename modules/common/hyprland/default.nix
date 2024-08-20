@@ -82,9 +82,9 @@
           margin-bottom = 0;
           margin-left = 0;
           margin-right = 0;
-          modules-left = ["custom/launcher" "hyprland/workspaces"];
-          modules-center = ["clock"];
-          modules-right = ["tray" "battery" "cpu" "memory" "pulseaudio"];
+          modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
+          modules-center = [ "custom/left" "hyprland/window" "custom/right"];
+          modules-right = ["custom/left" "tray" "battery" "cpu" "memory" "pulseaudio" "clock" "custom/right"];
           
           battery = {
             bat = "BAT0";
@@ -92,11 +92,15 @@
             "format-icons" = ["" "" "" "" ""];
           };
 
+          window = {
+            format = "{title}";
+          };
+
           clock = {
             calendar = {
               format = {today = "<span color='#b4befe'><b>{}</b></span>";};
             };
-            format = "  {:%a %d %b, %H:%M}";
+            format = "{:%a %d %b, %H:%M}";
           };
 
           "hyprland/workspaces" = {
@@ -142,6 +146,16 @@
             on-click = "pkill wofi || wofi --show drun -I";
             tooltip = "false";
           };
+          "custom/left"= {
+              "format"= " ";
+              "interval" = "once";
+              "tooltip"= false;
+          };
+          "custom/right"= {
+              "format"= " ";
+              "interval" = "once";
+              "tooltip"= false;
+          };
         };
       };
       style = ''
@@ -157,70 +171,62 @@
         }
 
         window#waybar {
-            background: #1e1e2e;
+          background-color: transparent;
         }
 
         #workspaces {
-            font-size: 15px;
-            padding-left: 15px;
+          font-size: 18px;
+          padding-left: 15px;
+          margin-top: 5px;
+          background-color: #1e1e2e;
         }
+
         #workspaces button {
-            color: #cdd6f4;
-            padding-left:  6px;
-            padding-right: 6px;
+          color: #cdd6f4;
+          padding-left: 5px;
         }
         #workspaces button.empty {
-            color: #6c7086;
+          color: #6c7086;
         }
         #workspaces button.active {
-            color: #b4befe;
+          color: #b4befe;
         }
 
-        #battery, #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock {
-            font-size: 15px;
-            color: #cdd6f4;
-        }
-
-        #cpu {
-            font-size: 15px;
-            padding-left: 9px;
-            padding-right: 9px;
-            margin-left: 7px;
-        }
-        #memory {
-            font-size: 15px;
-            padding-left: 9px;
-            padding-right: 9px;
-        }
-
-        #tray {
-            padding: 0 16px;
-            padding-right: 12px;
-            margin-left: 7px;
-        }
-
-        #pulseaudio {
-            font-size: 15px;
-            padding-left: 15px;
-            padding-right: 9px;
-            margin-left: 7px;
-        }
-        #network {
-            padding-left: 9px;
-            padding-right: 15px;
-        }
-
-        #clock {
-            padding-left: 9px;
-            padding-right: 15px;
+        #battery, 
+        #tray, 
+        #pulseaudio, 
+        #cpu, 
+        #memory, 
+        #disk, 
+        #clock, 
+        #custom-launcher, 
+        #window
+        {
+          font-size: 15px;
+          color: #cdd6f4;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 5px;
+          background-color: #1e1e2e;
         }
 
         #custom-launcher {
-            font-size: 18px;
-            color: #b4befe;
-            font-weight: bold;
-            padding-left: 10px;
-            padding-right: 12px;
+          font-size: 18px;
+          color: #b4befe;
+          font-weight: bold;
+        }
+        #custom-right {
+          border-radius: 0px 10px 10px 0px;
+          background-color: #1e1e2e;
+          margin-right: 10px;
+          margin-top: 5px;
+        }
+
+        #custom-left {
+          border-radius: 10px 0px 0px 10px;
+          background-color: #1e1e2e;
+          margin-left: 10px;
+          margin-top: 5px;
         }
       '';
     };
