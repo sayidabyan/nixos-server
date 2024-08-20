@@ -46,7 +46,7 @@
             inner_color ="rgba(30, 30, 46, 0.5)";
             font_color = "rgb(200, 200, 200)";
             fade_on_empty = false;
-            font_family = "FiraCode Nerd Font";
+            font_family = "Quicksand";
             placeholder_text = ''
             <i><span foreground="##ffffff99">Password</span></i>
             '';
@@ -61,7 +61,7 @@
             text = "$USER";
             color ="rgba(205, 214, 244, .75)";
             font_size = 30;
-            font_family = "FiraCode Nerd Font";
+            font_family = "Quicksand";
             position = "0, 40";
             halign = "center";
             valign = "center";
@@ -343,11 +343,11 @@
           "SUPER CTRL, J, resizeactive, 0 50"
 
           # Switch workspaces with mainMod + [0-9]
-          "$mainMod, H, exec, hyprnome -p -n"
+          "$mainMod, H, exec, hyprnome -p"
           "$mainMod, L, exec, hyprnome"
 
           # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, H, exec, hyprnome -p -m -n"
+          "$mainMod SHIFT, H, exec, hyprnome -p -m"
           "$mainMod SHIFT, L, exec, hyprnome -m"
 
           # Screenshot bind
