@@ -54,7 +54,10 @@
   services.xserver.enable = true;
 
   # Enable the Desktop Environment/ Display Manager.
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    autoSuspend = false;
+  };
   services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
 
