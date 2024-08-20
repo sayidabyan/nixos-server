@@ -92,8 +92,9 @@
             "format-icons" = ["" "" "" "" ""];
           };
 
-          window = {
+          "hyprland/window" = {
             format = "{title}";
+            max-length = 100;
           };
 
           clock = {
@@ -177,7 +178,7 @@
         #workspaces {
           font-size: 18px;
           padding-left: 15px;
-          margin-top: 5px;
+          margin-top: 3px;
           background-color: #1e1e2e;
         }
 
@@ -206,7 +207,7 @@
           color: #cdd6f4;
           padding-left: 10px;
           padding-right: 10px;
-          margin-top: 5px;
+          margin-top: 3px;
           background-color: #1e1e2e;
         }
 
@@ -219,14 +220,14 @@
           border-radius: 0px 10px 10px 0px;
           background-color: #1e1e2e;
           margin-right: 10px;
-          margin-top: 5px;
+          margin-top: 3px;
         }
 
         #custom-left {
           border-radius: 10px 0px 0px 10px;
           background-color: #1e1e2e;
           margin-left: 10px;
-          margin-top: 5px;
+          margin-top: 3px;
         }
       '';
     };
@@ -250,7 +251,7 @@
         
         input = {
           accel_profile = "flat";
-          scroll_factor = "0.5";
+          scroll_factor = "0.35";
           follow_mouse = "0";
         };
 
