@@ -55,7 +55,7 @@
 
   # Enable the Desktop Environment/ Display Manager.
   services.xserver.displayManager.gdm.enable = true;
-  # services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
 
   # Fix Network Manager Error
