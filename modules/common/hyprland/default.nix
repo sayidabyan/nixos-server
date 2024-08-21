@@ -98,10 +98,8 @@
           };
 
           clock = {
-            calendar = {
-              format = {today = "<span color='#b4befe'><b>{}</b></span>";};
-            };
             format = "{:%a %d %b, %H:%M}";
+            format-alt = "  {:%H:%M}";
           };
 
           "hyprland/workspaces" = {
@@ -120,7 +118,7 @@
 
           memory = {
             format = "  {}%";
-            format-alt = " {used} GB";
+            format-alt = "  {used} GB";
             interval = 2;
           };
 
