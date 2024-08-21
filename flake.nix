@@ -14,6 +14,9 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aiken = {
+      url = "github:aiken-lang/aiken/release/v1.0.29-alpha";
+    };
     editor-integration-nvim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
