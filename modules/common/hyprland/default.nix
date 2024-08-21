@@ -175,6 +175,10 @@
           background-color: transparent;
         }
 
+        .module {
+          margin-top: 3px;
+        }
+
         #window {
          border-radius: 10px 10px 10px 10px;
         }
@@ -184,9 +188,10 @@
         }
 
         #workspaces {
-          font-size: 18px;
-          padding-left: 15px;
-          margin-top: 3px;
+          font-size: 15px;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-bottom: 1px;
           background-color: #1e1e2e;
         }
 
@@ -213,9 +218,8 @@
         {
           font-size: 15px;
           color: #cdd6f4;
-          padding-left: 10px;
-          padding-right: 10px;
-          margin-top: 3px;
+          padding-left: 5px;
+          padding-right: 5px;
           background-color: #1e1e2e;
         }
 
@@ -228,14 +232,12 @@
           border-radius: 0px 10px 10px 0px;
           background-color: #1e1e2e;
           margin-right: 10px;
-          margin-top: 3px;
         }
 
         #custom-left {
           border-radius: 10px 0px 0px 10px;
           background-color: #1e1e2e;
           margin-left: 10px;
-          margin-top: 3px;
         }
       '';
     };
