@@ -38,7 +38,17 @@
       };
     };
     services.mako = {
-
+      enable = true;
+      font = "Quicksand 12";
+      backgroundColor = "#1e1e2e";
+      textColor = "#cdd6f4";
+      borderColor = "#b4befe";
+      borderRadius = 10;
+      progressColor = "over #313244";
+      extraConfig = ''
+        [urgency=high]
+        border-color=#fab387
+      '';
     };
     programs.hyprlock = {
       enable = true;
