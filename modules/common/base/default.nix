@@ -120,6 +120,7 @@
       neofetch
       cinnamon.nemo
       pavucontrol
+      p7zip
       rhythmbox
       speedtest-cli
       transmission-gtk

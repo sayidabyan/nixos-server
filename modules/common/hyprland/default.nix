@@ -4,8 +4,6 @@
     enable = true;
   };
 
-  services.blueman.enable = true;
-
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
       grim
@@ -16,8 +14,9 @@
       brightnessctl
       unstable.nwg-look
       hyprnome
+      blueman
     ];
-    services.blueman-applet.enable = true;
+
     services.network-manager-applet.enable = true;
     programs.fuzzel = {
       enable = true;
@@ -37,6 +36,8 @@
           border="b4befeff";
         };
       };
+    };
+    services.mako = {
 
     };
     programs.hyprlock = {
@@ -101,8 +102,14 @@
           margin-right = 0;
           modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
           modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
-          modules-right = ["custom/left" "tray" "pulseaudio" "battery" "cpu" "memory" "clock" "custom/right"];
+          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "battery" "cpu" "memory" "clock" "custom/right"];
           
+          bluetooth = {
+            "format" = "";
+            "interval" = 5;
+            "on-click" = "blueman-manager";
+          };
+
           battery = {
             bat = "BAT0";
             format = "{icon}  {capacity}%";
@@ -153,6 +160,7 @@
           tray = {
             icon-size = 20;
             spacing = 8;
+            reverse-direction = true;
           };
 
           pulseaudio = {
@@ -235,13 +243,22 @@
         #disk, 
         #clock, 
         #custom-launcher, 
-        #window
+        #window,
+        #bluetooth
         {
           font-size: 15px;
           color: #cdd6f4;
           padding-left: 5px;
           padding-right: 5px;
           background-color: #1e1e2e;
+        }
+
+        #bluetooth.connected {
+          color: #a6e3a1;
+        }
+
+        #bluetooth.off{
+          color: #6c7086;
         }
 
         #battery.charging {
@@ -442,6 +459,8 @@
         windowrulev2 = [
           "tile,class:^(kitty)$"
           "float,class:^(nemo)$"
+          "float,class:^(pavucontrol)$"
+          "float,class:^(.blueman-manager-wrapped)$"
         ];
       };
     };
