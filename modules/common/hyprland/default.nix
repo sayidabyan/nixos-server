@@ -113,6 +113,7 @@
               active = "●";
               default = "○";
               special = "⦿";
+              urgent = "●";
               sort-by-number = true;
             };
           };
@@ -202,14 +203,12 @@
         }
 
         #workspaces button {
-          color: #cdd6f4;
-          padding-left: 5px;
-        }
-        #workspaces button.empty {
-          color: #6c7086;
-        }
-        #workspaces button.active {
           color: #b4befe;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        #workspaces button.urgent {
+          color: #fab387;
         }
 
         #battery, 
@@ -235,13 +234,13 @@
           font-weight: bold;
         }
         #custom-right, #custom-altRight {
-          border-radius: 0px 10px 10px 0px;
+          border-radius: 0px 15px 15px 0px;
           background-color: #1e1e2e;
           margin-right: 10px;
         }
 
         #custom-left, #custom-altLeft{
-          border-radius: 10px 0px 0px 10px;
+          border-radius: 15px 0px 0px 15px;
           background-color: #1e1e2e;
           margin-left: 10px;
         }
