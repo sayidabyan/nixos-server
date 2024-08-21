@@ -383,6 +383,8 @@
           "$mainMod, Y, togglesplit, # dwindle"
           "$mainMod, M, fullscreen, 1"
           "$mainMod SHIFT, M, fullscreen"
+          "$mainMod, TAB, cyclenext"
+          "$mainMod, TAB, bringactivetotop"
 
            # Move focus
           "SUPER, H, movefocus, l"
