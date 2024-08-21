@@ -1,12 +1,13 @@
 {...}:
 {
-  home-manager.users.sayid = {...}: {
+  home-manager.users.sayid = {pkgs, ...}: {
     home.file.".config/kitty/current-theme.conf" = {
       source = ./Catppuccin-Mocha.conf;
       recursive = true;
     };
     programs.kitty = {
       enable = true;
+      package = pkgs.unstable.kitty;
       font.name = "Firacode Nerd Font";
       settings = {
         background_opacity = "0.8";
