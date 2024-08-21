@@ -135,9 +135,9 @@
           };
 
           pulseaudio = {
-            format = "{icon} {volume}%";
-            format-muted = "󰖁 0%";
-            format-icons = {default = [" "];};
+            format = "{icon}  {volume}%";
+            format-muted = "  0%";
+            format-icons = {default = ["" " " " "];};
             scroll-step = 2;
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
@@ -381,7 +381,7 @@
         ];
         binde = [
           # pipewire volume control
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ --limit 1.5"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioPlay, exec, playerctl play-pause"
