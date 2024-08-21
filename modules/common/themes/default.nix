@@ -36,7 +36,10 @@
       };
       iconTheme = {
         name = "Papirus";
-        package = pkgs.papirus-icon-theme;
+        package = pkgs.catppuccin-papirus-folders.override {
+          flavor = "mocha";
+          accent = "lavender";
+        };
       };
       cursorTheme = {
         name = "Bibata-Modern-Ice";

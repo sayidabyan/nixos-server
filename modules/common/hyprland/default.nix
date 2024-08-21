@@ -19,8 +19,14 @@
     ];
     services.blueman-applet.enable = true;
     services.network-manager-applet.enable = true;
-    programs.wofi = {
+    programs.wofi.enable = true;
+    programs.rofi = {
       enable = true;
+      # package = pkgs.rofi-wayland;
+      font = "Quicksand";
+      location = "center";
+      terminal = "\${pkgs.kitty}/bin/kitty";
+      plugins = [ pkgs.rofi-calc ];
     };
     programs.hyprlock = {
       enable = true;
@@ -88,8 +94,13 @@
           
           battery = {
             bat = "BAT0";
-            "format" = "{icon}  {capacity}%";
-            "format-icons" = ["" "" "" "" ""];
+            format = "{icon}  {capacity}%";
+            format-icons = [" " " " " " " " " "];
+            interval = 5;
+            states = {
+              "warning" = 30;
+              "critical" = 15;
+            };
           };
 
           "hyprland/window" = {
@@ -143,7 +154,7 @@
 
           "custom/launcher" = {
             format = "";
-            on-click = "pkill wofi || wofi --show drun -I";
+            on-click = "pkill rofi || rofi -show drun";
             tooltip = "false";
           };
           "custom/left"= {
@@ -220,6 +231,16 @@
           padding-left: 5px;
           padding-right: 5px;
           background-color: #1e1e2e;
+        }
+
+        #battery.charging {
+          color: #a6e3a1;
+        }
+        #batter.warning {
+          color: #f9e2af;
+        }
+        #batter.critical {
+          color: #f38ba8;
         }
 
         #custom-launcher {
@@ -344,7 +365,8 @@
           "$mainMod, Q, killactive" 
           "$mainMod, R, exit"
           "$mainMod, V, togglefloating" 
-          "$mainMod, SPACE, exec, pkill wofi || wofi --show drun -I;"
+          "$mainMod, SPACE, exec, pkill rofi || rofi -show drun"
+          "$mainMod SHIFT, SPACE, exec, pkill rofi || rofi -show calc"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, Y, togglesplit, # dwindle"
           "$mainMod, M, fullscreen, 1"
@@ -393,7 +415,7 @@
         binde = [
           # pipewire volume control
           ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ --limit 1.5"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+          ", XF86Auhttps://wiki.hyprland.org/Configuring/Using-hyprctl/dioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioPrev, exec, playerctl previous"
@@ -405,7 +427,8 @@
         ];
         windowrulev2 = [
           "tile,class:^(kitty)$"
-          "noanim, class:^(wofi)$"
+          "noanim, class:^(rofi)$"
+          "float, class:^(rofi)$"
         ];
         layerrule = [
           "noanim,  wofi"
