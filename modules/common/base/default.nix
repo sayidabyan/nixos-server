@@ -109,6 +109,7 @@
   home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
   home-manager.users.sayid = { pkgs, ... }: {
     home.packages = with pkgs; [
+      bc
       bitwarden-desktop
       unstable.bottom
       brave
