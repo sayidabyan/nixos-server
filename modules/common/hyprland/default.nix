@@ -166,7 +166,7 @@
             padding: 0;
             margin: 0;
             min-height: 0px;
-            font-family: FiraCode Nerd Font;
+            font-family: Quicksand;
             font-weight: bold;
             opacity: 0.98;
         }
