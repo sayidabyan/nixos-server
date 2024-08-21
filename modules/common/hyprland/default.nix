@@ -83,8 +83,8 @@
           margin-left = 0;
           margin-right = 0;
           modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
-          modules-center = [ "hyprland/window" ];
-          modules-right = ["custom/left" "tray" "battery" "cpu" "memory" "pulseaudio" "clock" "custom/right"];
+          modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
+          modules-right = ["custom/left" "tray" "pulseaudio" "battery" "cpu" "memory" "clock" "custom/right"];
           
           battery = {
             bat = "BAT0";
@@ -157,6 +157,16 @@
               "interval" = "once";
               "tooltip"= false;
           };
+          "custom/altLeft"= {
+              "format"= " ";
+              "interval" = "once";
+              "tooltip"= false;
+          };
+          "custom/altRight"= {
+              "format"= " ";
+              "interval" = "once";
+              "tooltip"= false;
+          };
         };
       };
       style = ''
@@ -179,11 +189,7 @@
           margin-top: 3px;
         }
 
-        #window {
-         border-radius: 10px 10px 10px 10px;
-        }
-
-        window#waybar.empty #window {
+        window#waybar.empty #window,#custom-altLeft, custom-altRight {
             background-color: transparent;
         }
 
@@ -228,13 +234,13 @@
           color: #b4befe;
           font-weight: bold;
         }
-        #custom-right {
+        #custom-right, #custom-altRight {
           border-radius: 0px 10px 10px 0px;
           background-color: #1e1e2e;
           margin-right: 10px;
         }
 
-        #custom-left {
+        #custom-left, #custom-altLeft{
           border-radius: 10px 0px 0px 10px;
           background-color: #1e1e2e;
           margin-left: 10px;
