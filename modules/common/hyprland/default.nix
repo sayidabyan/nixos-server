@@ -188,10 +188,6 @@
           margin-top: 3px;
         }
 
-        window#waybar.empty #window,#custom-altLeft, custom-altRight {
-            background-color: transparent;
-        }
-
         #workspaces {
           font-size: 15px;
           padding-left: 5px;
@@ -241,6 +237,16 @@
           border-radius: 15px 0px 0px 15px;
           background-color: #1e1e2e;
           margin-left: 10px;
+        }
+
+        window#waybar.empty #window {
+            background-color: transparent;
+        }
+        window#waybar.empty #custom-altRight {
+            background-color: transparent;
+        }
+        window#waybar.empty #custom-altLeft {
+            background-color: transparent;
         }
       '';
     };
