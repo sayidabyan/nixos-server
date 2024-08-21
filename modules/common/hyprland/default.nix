@@ -19,14 +19,25 @@
     ];
     services.blueman-applet.enable = true;
     services.network-manager-applet.enable = true;
-    programs.wofi.enable = true;
-    programs.rofi = {
+    programs.fuzzel = {
       enable = true;
-      # package = pkgs.rofi-wayland;
-      font = "Quicksand";
-      location = "center";
-      terminal = "\${pkgs.kitty}/bin/kitty";
-      plugins = [ pkgs.rofi-calc ];
+      settings = {
+        main = {
+          terminal = "${pkgs.kitty}/bin/kitty";
+          font = "Quicksand:weight=medium:size=12";
+          icon-theme = "Papirus-Dark";
+        };
+        colors = {
+          background="1e1e2eff";
+          text="cdd6f4ff";
+          match="b4befeff";
+          selection="585b70ff";
+          selection-match="b4befeff";
+          selection-text="cdd6f4ff";
+          border="b4befeff";
+        };
+      };
+
     };
     programs.hyprlock = {
       enable = true;
@@ -154,7 +165,7 @@
 
           "custom/launcher" = {
             format = "";
-            on-click = "pkill rofi || rofi -show drun";
+            on-click = "pkill fuzzel || fuzzel";
             tooltip = "false";
           };
           "custom/left"= {
@@ -188,7 +199,7 @@
             min-height: 0px;
             font-family: Quicksand;
             font-weight: bold;
-            opacity: 0.98;
+            opacity: 1;
         }
 
         window#waybar {
@@ -365,8 +376,9 @@
           "$mainMod, Q, killactive" 
           "$mainMod, R, exit"
           "$mainMod, V, togglefloating" 
-          "$mainMod, SPACE, exec, pkill rofi || rofi -show drun"
-          "$mainMod SHIFT, SPACE, exec, pkill rofi || rofi -show calc"
+          "$mainMod, SPACE, exec, pkill fuzzel || fuzzel"
+          "$mainMod SHIFT, SPACE, execr, pkill fuzzel || ~/nixos/modules/common/hyprland/fuzzel/fuzzel-calculator.sh"
+          "$mainMod CTRL, SPACE, execr, pkill fuzzel || ~/nixos/modules/common/hyprland/fuzzel/fuzzel-powermenu.sh"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, Y, togglesplit, # dwindle"
           "$mainMod, M, fullscreen, 1"
@@ -427,11 +439,7 @@
         ];
         windowrulev2 = [
           "tile,class:^(kitty)$"
-          "noanim, class:^(rofi)$"
-          "float, class:^(rofi)$"
-        ];
-        layerrule = [
-          "noanim,  wofi"
+          "float,class:^(nemo)$"
         ];
       };
     };
