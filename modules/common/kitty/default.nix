@@ -19,6 +19,9 @@
         # BEGIN_KITTY_THEME
         include current-theme.conf
         # END_KITTY_THEME%
+
+        # New window in current directory instead of home
+        map ctrl+shift+enter launch --type=window --cwd=current
       '';
       shellIntegration.enableZshIntegration = true;
     };
