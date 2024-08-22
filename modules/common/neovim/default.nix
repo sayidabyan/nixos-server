@@ -111,7 +111,6 @@
         '';
       }
 
-
       {
         plugin = harpoon;
         type = "lua";
@@ -138,7 +137,7 @@
           vim.keymap.set('n', '<leader>hl', function()
             require('harpoon.ui').nav_next()
           end, {desc = 'Harpoon Navigate To Next File'})
-	  vim.keymap.set('n', '<leader>hh', function()
+	        vim.keymap.set('n', '<leader>hh', function()
             require('harpoon.ui').nav_prev()
           end, {desc = 'Harpoon Navigate to next File'})
         '';
@@ -175,7 +174,15 @@
       {
         plugin = fidget-nvim;
         type = "lua";
-        config = "require('fidget').setup()";
+        config = ''
+          require('fidget').setup({
+            notification = {
+              window = {
+                winblend = 0,
+              },
+            },
+          })
+          '';
       }
 
       {
@@ -323,12 +330,6 @@
         config = "require('nvim-surround').setup()";
         type = "lua";
       }
-
-      # {
-      #   plugin = octo-nvim;
-      #   config = "require('octo').setup()";
-      #   type = "lua";
-      # }
     ];
   };
 }
