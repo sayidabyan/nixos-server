@@ -236,3 +236,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.g.transparent_enabled = true;
+
+require("telescope").setup {
+  pickers = {
+    buffers = {
+      mappings = {
+        n = {
+          ["<c-d>"] = "delete_buffer",
+        }
+      }
+    }
+  }
+}
