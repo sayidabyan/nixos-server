@@ -5,7 +5,7 @@
     wlr.enable = true;
     extraPortals = with pkgs;[
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
     ];
   };
   environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
@@ -20,7 +20,7 @@
       enable = true;
       extraPortals = with pkgs;[
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
+        xdg-desktop-portal-hyprland
       ];
       config.common.default = "*";
     };
