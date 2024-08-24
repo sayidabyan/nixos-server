@@ -217,6 +217,14 @@ require('lspconfig').eslint.setup({
   end,
 })
 
+require'lspconfig'.aiken.setup{}
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.ak",
+  callback = function()
+    vim.lsp.buf.format({async = false})
+  end
+})
+
 require('telescope').load_extension('file_browser')
 vim.keymap.set('n', '<leader>fm', function()
   require('telescope').extensions.file_browser.file_browser({
@@ -225,15 +233,6 @@ vim.keymap.set('n', '<leader>fm', function()
     hidden = true,
   })
 end, { noremap = true, desc = '[F]ile [M]anager' })
-
-
-require'lspconfig'.aiken.setup{}
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.ak",
-  callback = function()
-    vim.lsp.buf.format({async = false})
-  end
-})
 
 vim.g.transparent_enabled = true;
 
