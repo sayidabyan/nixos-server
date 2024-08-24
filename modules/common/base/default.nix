@@ -137,6 +137,11 @@
       plugins = [ pkgs.obs-studio-plugins.droidcam-obs ];
     };
     programs.gh.enable = true;
+    
+    # Direnv
+    programs.direnv.enable = true;
+    programs.direnv.enableZshIntegration = true;
+    programs.direnv.nix-direnv.enable = true; # prevent garbage collection
   };
 
   # List packages installed in system profile. To search, run:
