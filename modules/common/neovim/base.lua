@@ -23,7 +23,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
