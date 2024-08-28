@@ -117,8 +117,8 @@
       deno
       fastfetch
       htop
+      gnome.nautilus
       neofetch
-      cinnamon.nemo
       pavucontrol
       pfetch
       p7zip

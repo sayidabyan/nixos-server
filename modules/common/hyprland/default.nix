@@ -133,7 +133,7 @@
           };
 
           "hyprland/window" = {
-            format = "{title}";
+            format = "{class}";
             max-length = 100;
           };
 
@@ -385,7 +385,6 @@
             "border, 1, 5, default"
             "borderangle, 1, 5, default"
             "workspaces, 1, 5, 1, slide"
-            "fade, 0"
           ];
         };
           
@@ -470,7 +469,7 @@
         ];
         windowrulev2 = [
           "tile,class:^(kitty)$"
-          "float,class:^(nemo)$"
+          "float,class:^(org.gnome.Nautilus)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(.blueman-manager-wrapped)$"
         ];
