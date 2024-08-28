@@ -120,6 +120,7 @@
       neofetch
       cinnamon.nemo
       pavucontrol
+      pfetch
       p7zip
       rhythmbox
       signal-desktop

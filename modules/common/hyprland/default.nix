@@ -77,7 +77,7 @@
             fade_on_empty = false;
             font_family = "Quicksand";
             placeholder_text = ''
-            <i><span foreground="##ffffff99">Password</span></i>
+            <span foreground="##ffffff99">Password</span>
             '';
             hide_input = false;
             halign = "center";
@@ -345,8 +345,8 @@
         ];
 
         general = {
-          gaps_in = "4";
-          gaps_out = "4";
+          gaps_in = "3";
+          gaps_out = "3";
           border_size = "2";
           "col.active_border" = "rgb(b4befe)";
           layout = "dwindle";
@@ -381,10 +381,11 @@
             "windows, 1, 5, 1"
             "windowsIn, 1, 5, 1, slide"
             "windowsOut, 1, 5, 1, slide"
+            "windowsMove, 1, 5, 1, slide"
             "border, 1, 5, default"
             "borderangle, 1, 5, default"
-            "fade, 1, 5, default"
             "workspaces, 1, 5, 1, slide"
+            "fade, 0"
           ];
         };
           

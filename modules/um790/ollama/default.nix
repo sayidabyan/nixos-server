@@ -13,7 +13,7 @@
       enable = true;
       package = pkgs.unstable.open-webui;
       host = "100.112.119.112";
-      port = 3000;
+      port = 8080;
     };
   };
 }
