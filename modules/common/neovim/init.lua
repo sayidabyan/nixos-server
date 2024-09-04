@@ -203,12 +203,12 @@ require('lspconfig').lua_ls.setup(vim.tbl_extend('force', defaultConfig, {
     },
   },
 }))
--- require('lspconfig').tsserver.setup(defaultConfig)
+require('lspconfig').tsserver.setup(defaultConfig)
 require('lspconfig').html.setup(defaultConfig)
 require('lspconfig').nixd.setup(defaultConfig)
 require('lspconfig').hls.setup(defaultConfig)
 require('lspconfig').jsonls.setup(defaultConfig)
-require('lspconfig').denols.setup(defaultConfig)
+require('lspconfig').pylsp.setup(defaultConfig)
 
 require('lspconfig').eslint.setup({
   capabilities = capabilities,
