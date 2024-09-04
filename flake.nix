@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     aiken = {
-      url = "github:aiken-lang/aiken/release/v1.0.29-alpha";
+      url = "git+https://github.com/aiken-lang/aiken?tag=v1.1.0";
     };
     editor-integration-nvim = {
       url = "github:aiken-lang/editor-integration-nvim";
