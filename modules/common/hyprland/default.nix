@@ -133,7 +133,6 @@
           };
 
           "hyprland/window" = {
-            format = "{class}";
             max-length = 100;
           };
 

@@ -119,6 +119,7 @@
       htop
       gnome.nautilus
       neofetch
+      nodePackages.typescript-language-server
       pavucontrol
       pfetch
       p7zip
