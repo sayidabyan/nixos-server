@@ -3,11 +3,11 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
@@ -24,6 +24,7 @@
       url = "github:simeji/winresizer";
       flake = false;
     };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
   outputs = inputs:
     let
@@ -105,6 +106,11 @@
         xps13 = [
           inputs.nixos-hardware.nixosModules.dell-xps-13-9370
         ];
+        amdpc = [
+          inputs.nixos-hardware.nixosModules.common-cpu-amd
+          inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+        ];
+
       };
     };
 }

@@ -33,7 +33,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "Asia/Jakarta";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -54,6 +54,7 @@
   services.xserver.enable = true;
 
   # Enable the Desktop Environment/ Display Manager.
+ 
   services.xserver.displayManager.gdm = {
     enable = true;
     autoSuspend = false;
@@ -78,7 +79,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true; # For 32 bit applications
   hardware.ledger.enable = true;
   
   # Enable Flakes
@@ -112,12 +114,12 @@
       bc
       bitwarden-desktop
       unstable.bottom
-      brave
+      unstable.brave
       btop
       deno
       fastfetch
       htop
-      gnome.nautilus
+      nautilus
       neofetch
       nodePackages.typescript-language-server
       pavucontrol
@@ -126,7 +128,7 @@
       rhythmbox
       signal-desktop
       speedtest-cli
-      transmission-gtk
+      transmission_4-gtk
       ventoy
       vlc
       vscode-fhs

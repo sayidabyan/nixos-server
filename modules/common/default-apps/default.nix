@@ -13,7 +13,7 @@
   home-manager.users.sayid = {...}:{
     home.sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = "brave";
+      BROWSER = "zen";
       TERMINAL = "kitty";
     };
     xdg.portal = {
@@ -28,11 +28,28 @@
     xdg.mimeApps = {
       enable  =  true;
       defaultApplications = {
-        "default-web-browser" = [ "brave-browser.desktop" ];
-        "text/html" = [ "brave-browser.desktop" ];
-        "x-scheme-handler/http" = [ "brave-browser.desktop" ];
-        "x-scheme-handler/https" = [ "brave-browser.desktop" ];
-        "text/nix" = [ "nvim.desktop" ];
+        "x-scheme-handler/http"="zen.desktop";
+        "x-scheme-handler/https"="zen.desktop";
+        "x-scheme-handler/chrome"="zen.desktop";
+        "text/html"="zen.desktop";
+        "application/x-extension-htm"="zen.desktop";
+        "application/x-extension-html"="zen.desktop";
+        "application/x-extension-shtml"="zen.desktop";
+        "application/xhtml+xml"="zen.desktop";
+        "application/x-extension-xhtml"="zen.desktop";
+        "application/x-extension-xht"="zen.desktop";
+      };
+      associations.added = {
+        "x-scheme-handler/http"="zen.desktop";
+        "x-scheme-handler/https"="zen.desktop";
+        "x-scheme-handler/chrome"="zen.desktop";
+        "text/html"="zen.desktop";
+        "application/x-extension-htm"="zen.desktop";
+        "application/x-extension-html"="zen.desktop";
+        "application/x-extension-shtml"="zen.desktop";
+        "application/xhtml+xml"="zen.desktop";
+        "application/x-extension-xhtml"="zen.desktop";
+        "application/x-extension-xht"="zen.desktop";
       };
     };
     xdg.userDirs = {
