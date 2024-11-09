@@ -404,7 +404,7 @@
         bind = [
           "$mainMod, T, exec, kitty"
           "$mainMod, Q, killactive" 
-          "$mainMod, R, exit"
+          # "$mainMod, R, exit"
           "$mainMod, V, togglefloating" 
           "$mainMod, SPACE, exec, pkill fuzzel || fuzzel"
           "$mainMod SHIFT, SPACE, execr, pkill fuzzel || ~/nixos/modules/common/hyprland/fuzzel/fuzzel-calculator.sh"
@@ -449,7 +449,7 @@
           "SHIFT, PRINT, exec, grimblast copysave active"
 
           # Lock screen
-          "SUPER, Q, exec, killall hyprlock; hyprlock "
+          "SUPER, Q, exec, killall hyprlock; hyprlock"
         ];
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [
