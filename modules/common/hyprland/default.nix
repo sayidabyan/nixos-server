@@ -473,7 +473,7 @@
           "tile,class:^(kitty)$"
           "float,class:^(steam)$"
           "float,class:^(org.gnome.Nautilus)$"
-          "float,class:^(pavucontrol)$"
+          "float,class:^(org.pulseaudio.pavucontrol)$"
           "float,class:^(.blueman-manager-wrapped)$"
         ];
       };
