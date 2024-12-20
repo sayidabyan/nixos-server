@@ -3,7 +3,7 @@
   services = {
     ollama = {
       enable = true;
-      package = pkgs.unstable.ollama;
+      package = pkgs.ollama;
      # acceleration = "rocm";
      # environmentVariables = {
      #   HSA_OVERRIDE_GFX_VERSION="11.0.0";
@@ -11,7 +11,7 @@
     };
     open-webui = {
       enable = true;
-      package = pkgs.unstable.open-webui;
+      package = pkgs.open-webui;
       host = "100.112.119.112";
       port = 8080;
     };
