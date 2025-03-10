@@ -13,9 +13,6 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    aiken = {
-      url = "git+https://github.com/aiken-lang/aiken?tag=v1.1.7";
-    };
     editor-integration-nvim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;

@@ -113,8 +113,8 @@
     home.packages = with pkgs; [
       bc
       bitwarden-desktop
-      unstable.bottom
-      unstable.brave
+      bottom
+      brave
       btop
       deno
       fastfetch
@@ -135,7 +135,7 @@
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
-    home.stateVersion = "24.05";
+    home.stateVersion = "24.11";
     programs.home-manager.enable = true;
     programs.obs-studio = {
       enable = true;

@@ -12,7 +12,6 @@
       satty
       playerctl
       brightnessctl
-      unstable.nwg-look
       hyprnome
       blueman
     ];

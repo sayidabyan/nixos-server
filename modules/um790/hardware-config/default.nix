@@ -24,7 +24,7 @@
       fsType = "vfat";
     };
 
-  fileSystems."/media/ext" =
+  fileSystems."/home/sayid/external" =
     { device = "/dev/disk/by-uuid/1b1edf70-3acb-4305-ad37-3e8cf65d2cfa";
       fsType = "ext4";
     };
