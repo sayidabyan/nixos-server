@@ -2,6 +2,7 @@
 {
   services.seafile = {
     enable = true;
+    adminEmail = "say.unnamed294@simplelogin.com";
     initialAdminPassword = "test123.";
 
     ccnetSettings.General.SERVICE_URL = "http://drive.say.id";
