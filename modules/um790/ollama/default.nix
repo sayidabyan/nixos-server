@@ -11,7 +11,7 @@
     };
     open-webui = {
       enable = true;
-      package = pkgs.unstable.open-webui;
+      package = pkgs.open-webui;
       host = "100.112.119.112";
       port = 8080;
     };
