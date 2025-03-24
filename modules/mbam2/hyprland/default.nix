@@ -14,8 +14,13 @@
         monitor = [
           "eDP-1, 2560x1664@60, 0x0, 2"
         ];
+        
         "$mainMod" = "SUPER";
         "$mainMod2" = "ALT";
+        
+        battery = {
+          bat = "macsmc-battery";
+        };
 
         render = {
           explicit_sync = 0;

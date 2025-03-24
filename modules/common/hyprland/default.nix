@@ -123,7 +123,6 @@
           };
 
           battery = {
-            bat = "macsmc-battery";
             format = "{icon} {capacity}%";
             format-icons = [" " " " " " " " " "];
             interval = 5;
