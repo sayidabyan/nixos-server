@@ -8,11 +8,11 @@ case $SELECTION in
 	*"Suspend")
 		systemctl suspend;;
 	*"Log out")
-		hyprctl dispatch exit;;
+		hyprctl dispatch exit 1;;
 	*"Reboot")
-		systemctl reboot;;
+		reboot;;
 	*"Reboot to UEFI")
-		systemctl reboot --firmware-setup;;
+		reboot --firmware-setup;;
 	*"Shutdown")
-		systemctl poweroff;;
+		shutdown now;;
 esac

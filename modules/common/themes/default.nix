@@ -4,7 +4,14 @@
   # Fonts
   fonts.fontDir.enable = true;
   fonts = {
-    packages = with pkgs; [nerdfonts font-awesome google-fonts ipafont];
+    packages = with pkgs; [
+      #nerd-fonts.fira-code
+      #nerd-fonts.symbols-only
+      nerdfonts
+      font-awesome 
+      google-fonts 
+      ipafont
+    ];
   };
 
   # Flatpak font compatibility
@@ -32,7 +39,6 @@
       font = {
         name = "Quicksand";
         size = 11;
-        package = pkgs.nerdfonts;
       };
       iconTheme = {
         name = "Papirus";

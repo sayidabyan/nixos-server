@@ -38,6 +38,9 @@
         "application/xhtml+xml"="zen.desktop";
         "application/x-extension-xhtml"="zen.desktop";
         "application/x-extension-xht"="zen.desktop";
+        "application/pdf" = "zen.desktop";
+        "inode/directory" = [ "nemo.desktop" ];
+        "application/x-gnome-saved-search" = [ "nemo.desktop" ];
       };
       associations.added = {
         "x-scheme-handler/http"="zen.desktop";
@@ -50,6 +53,7 @@
         "application/xhtml+xml"="zen.desktop";
         "application/x-extension-xhtml"="zen.desktop";
         "application/x-extension-xht"="zen.desktop";
+        "application/pdf" = "zen.desktop";
       };
     };
     xdg.userDirs = {

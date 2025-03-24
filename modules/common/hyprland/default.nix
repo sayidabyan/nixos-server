@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{pkgs, ...}:
 {
   programs.hyprland = {
     enable = true;
@@ -12,6 +12,7 @@
       satty
       playerctl
       brightnessctl
+      nwg-look
       hyprnome
       blueman
     ];
@@ -21,7 +22,7 @@
       enable = true;
       settings = {
         main = {
-          terminal = "${pkgs.kitty}/bin/kitty";
+          terminal = "/home/sayid/.nix-profile/bin/kitty";
           font = "Quicksand:weight=medium:size=12";
           icon-theme = "Papirus-Dark";
         };
@@ -86,7 +87,7 @@
         # Hour-Time
         label = [
           {
-            text = "$USER";
+            # text = "$USER";
             color ="rgba(205, 214, 244, .75)";
             font_size = 30;
             font_family = "Quicksand";
@@ -112,7 +113,7 @@
           margin-left = 0;
           margin-right = 0;
           modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
-          modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
+          # modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
           modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "battery" "cpu" "memory" "clock" "custom/right"];
           
           bluetooth = {
@@ -122,8 +123,8 @@
           };
 
           battery = {
-            bat = "BAT0";
-            format = "{icon}  {capacity}%";
+            bat = "macsmc-battery";
+            format = "{icon} {capacity}%";
             format-icons = [" " " " " " " " " "];
             interval = 5;
             states = {
@@ -178,12 +179,12 @@
             format-muted = "  0%";
             format-icons = {default = ["" " " " "];};
             scroll-step = 2;
-            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+            on-click = "pavucontrol";
           };
 
           "custom/launcher" = {
             format = "";
-            on-click = "pkill fuzzel || fuzzel";
+            on-click = "pkill fuzzel || ~/nixos/modules/common/hyprland/fuzzel/fuzzel-powermenu.sh";
             tooltip = "false";
           };
           "custom/left"= {
@@ -215,7 +216,7 @@
             padding: 0;
             margin: 0;
             min-height: 0px;
-            font-family: Quicksand;
+            font-family: Quicksand, Firacode Nerd Font;
             font-weight: bold;
             opacity: 1;
         }
@@ -322,21 +323,32 @@
       enable = true;
       xwayland.enable = true;
       settings = {
-        "$mainMod" = "ALT";
-        #env =  [
-        #  
-        #];
+        env =  [
+          "ELECTRON_OZONE_PLATFORM_HINT, wayland" 
+        ];
         
         input = {
-          accel_profile = "flat";
           scroll_factor = "0.5";
           follow_mouse = "1";
+          touchpad = {
+            natural_scroll = "1";
+            scroll_factor = "0.1";
+            tap-to-click = false;
+            tap-and-drag = false;
+            clickfinger_behavior = true;
+            disable_while_typing = true;
+          };
+        };
+
+        gestures = {
+          workspace_swipe = true;
+          workspace_swipe_cancel_ratio = 0.1;
+          workspace_swipe_distance = 500;
         };
 
         cursor = {
           enable_hyprcursor = true;
           no_hardware_cursors = true;
-          no_warps = true;
         };
         
         exec-once = [
@@ -416,22 +428,22 @@
           "$mainMod, TAB, bringactivetotop"
 
            # Move focus
-          "SUPER, H, movefocus, l"
-          "SUPER, L, movefocus, r"
-          "SUPER, K, movefocus, u"
-          "SUPER, J, movefocus, d"
+          "$mainMod2, H, movefocus, l"
+          "$mainMod2, L, movefocus, r"
+          "$mainMod2, K, movefocus, u"
+          "$mainMod2, J, movefocus, d"
 
           # Move window
-          "SUPER SHIFT, H, movewindow, l"
-          "SUPER SHIFT, L, movewindow, r"
-          "SUPER SHIFT, K, movewindow, u"
-          "SUPER SHIFT, J, movewindow, d"
+          "$mainMod2 SHIFT, H, movewindow, l"
+          "$mainMod2 SHIFT, L, movewindow, r"
+          "$mainMod2 SHIFT, K, movewindow, u"
+          "$mainMod2 SHIFT, J, movewindow, d"
 
           # Resize window
-          "SUPER CTRL, H, resizeactive, -50 0"
-          "SUPER CTRL, L, resizeactive, 50 0"
-          "SUPER CTRL, K, resizeactive, 0 -50"
-          "SUPER CTRL, J, resizeactive, 0 50"
+          "$mainMod2 CTRL, H, resizeactive, -50 0"
+          "$mainMod2 CTRL, L, resizeactive, 50 0"
+          "$mainMod2 CTRL, K, resizeactive, 0 -50"
+          "$mainMod2 CTRL, J, resizeactive, 0 50"
 
           # Switch workspaces with mainMod + [0-9]
           "$mainMod, H, exec, hyprnome -p"
@@ -447,8 +459,10 @@
           "ALT, PRINT, exec, grimblast save area - | satty -f -"
           "SHIFT, PRINT, exec, grimblast copysave active"
 
+          "$mainMod SHIFT, s, exec, grimblast copysave area"
+
           # Lock screen
-          "SUPER, Q, exec, killall hyprlock; hyprlock"
+          "$mainMod2, Q, exec, killall hyprlock; hyprlock "
         ];
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [
@@ -467,11 +481,14 @@
           # brightness control
           ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
           ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+
+          # keyboard backlit
+          "$mainMod, XF86MonBrightnessUp, exec, brightnessctl -d kbd_backlight s +20"
+          "$mainMod, XF86MonBrightnessDown, exec,  brightnessctl -d kbd_backlight s 20-"
         ];
         windowrulev2 = [
-          "tile,class:^(kitty)$"
           "float,class:^(steam)$"
-          "float,class:^(org.gnome.Nautilus)$"
+          "float,class:^(nemo)$"
           "float,class:^(org.pulseaudio.pavucontrol)$"
           "float,class:^(.blueman-manager-wrapped)$"
         ];
