@@ -28,12 +28,5 @@
   environment.variables = {
     GSK_RENDERER = "ngl";
   }; 
-  
-#  fileSystems."/mnt/external" = {
-#    device = "100.112.119.112:/external";
-#    fsType = "nfs";
-#    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600"];
-#  };
-  
 }
 

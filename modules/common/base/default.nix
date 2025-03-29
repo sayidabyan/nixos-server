@@ -96,6 +96,7 @@
       bottom
       brave
       btop
+      celluloid
       deno
       fastfetch
       htop
@@ -117,8 +118,9 @@
       unzip
       ventoy
       vesktop
-      vlc
       vscode-fhs
+      yt-dlp
+      zed-editor
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";

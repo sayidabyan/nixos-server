@@ -8,7 +8,7 @@
     programs.kitty = {
       enable = true;
       package = pkgs.kitty;
-      font.name = "Firacode Nerd Font";
+      font.name = "Firamono Nerd Font";
       settings = {
         background_opacity = "0.8";
         resize_debounce_time = "0";

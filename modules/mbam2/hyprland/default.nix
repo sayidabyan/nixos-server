@@ -9,6 +9,15 @@
         ];
       };
     };
+
+    programs.waybar = {
+      settings = {
+        battery = {
+          bat = "macsmc-battery";
+        };
+      };
+    };
+
     wayland.windowManager.hyprland = {
       settings = {
         monitor = [
@@ -18,10 +27,6 @@
         "$mainMod" = "SUPER";
         "$mainMod2" = "ALT";
         
-        battery = {
-          bat = "macsmc-battery";
-        };
-
         render = {
           explicit_sync = 0;
           explicit_sync_kms = 0;

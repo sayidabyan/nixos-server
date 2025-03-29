@@ -87,7 +87,7 @@
         # Hour-Time
         label = [
           {
-            # text = "$USER";
+            text = "$USER";
             color ="rgba(205, 214, 244, .75)";
             font_size = 30;
             font_family = "Quicksand";
