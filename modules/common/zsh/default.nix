@@ -27,7 +27,8 @@
                 source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
                 fi
                 ZSH_DISABLE_COMPFIX="true"
-                export DIRENV_LOG_FORMAT=
+                export DIRENV_LOG_FORMAT="direnv: %s"
+                export PATH=$PATH:/home/sayid/go/bin
             '';
             initExtra = ''
                 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

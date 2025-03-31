@@ -102,7 +102,6 @@
       htop
       jellyfin-media-player
       neofetch
-      nodePackages.typescript-language-server
       p7zip
       pavucontrol
       pfetch

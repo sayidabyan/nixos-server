@@ -40,7 +40,6 @@
         nvim-treesitter.withAllGrammars
         lspkind-nvim
         luasnip
-        copilot-vim
         editor-integration-nvim
 
         {
@@ -339,6 +338,19 @@
         {
           plugin = nvim-surround;
           config = "require('nvim-surround').setup()";
+          type = "lua";
+        }
+        {
+          plugin = copilot-lua;
+          config = "require('copilot').setup({
+                      suggestion = { enabled = false },
+                      panel = { enabled = false },
+                    })";
+          type = "lua";
+        }
+        {
+          plugin = copilot-cmp;
+          config = "require('copilot_cmp').setup()";
           type = "lua";
         }
       ];
