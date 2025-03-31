@@ -341,8 +341,10 @@
 
         gestures = {
           workspace_swipe = true;
-          workspace_swipe_cancel_ratio = 0.1;
-          workspace_swipe_distance = 500;
+          workspace_swipe_cancel_ratio = 0.15;
+          workspace_swipe_min_speed_to_force = 5;
+          workspace_swipe_distance = 1000;
+          workspace_swipe_create_new = false;
         };
 
         cursor = {
@@ -444,13 +446,17 @@
           "$mainMod2 CTRL, K, resizeactive, 0 -50"
           "$mainMod2 CTRL, J, resizeactive, 0 50"
 
-          # Switch workspaces with mainMod + [0-9]
-          "$mainMod, H, exec, hyprnome -p"
-          "$mainMod, L, exec, hyprnome"
+          # Switch workspaces with mainMod + H/L
+          "$mainMod, H, exec, hyprnome -p -n -c"
+          "$mainMod, L, exec, hyprnome -n -c"
 
-          # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, H, exec, hyprnome -p -m"
+          # Move active window to a workspace with mainMod + SHIFT + H/L
+          "$mainMod SHIFT, H, exec, hyprnome -p -m -n"
           "$mainMod SHIFT, L, exec, hyprnome -m"
+
+          # Special workspace
+          # "$mainMod, K, togglespecialworkspace"
+          # "$mainMod SHIFT, K, movetoworkspace, special"
 
           # Screenshot bind
           ", PRINT, exec, grimblast copysave screen"
