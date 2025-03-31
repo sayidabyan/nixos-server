@@ -107,6 +107,7 @@
       pfetch
       radeontop
       rhythmbox
+      unstable.rust-stakeholder
       scrcpy
       seafile-client
       signal-desktop

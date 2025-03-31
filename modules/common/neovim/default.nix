@@ -340,19 +340,19 @@
           config = "require('nvim-surround').setup()";
           type = "lua";
         }
-        {
-          plugin = copilot-lua;
-          config = "require('copilot').setup({
-                      suggestion = { enabled = false },
-                      panel = { enabled = false },
-                    })";
-          type = "lua";
-        }
-        {
-          plugin = copilot-cmp;
-          config = "require('copilot_cmp').setup()";
-          type = "lua";
-        }
+       # {
+       #   plugin = copilot-lua;
+       #   config = "require('copilot').setup({
+       #               suggestion = { enabled = false },
+       #               panel = { enabled = false },
+       #             })";
+       #   type = "lua";
+       # }
+       # {
+       #   plugin = copilot-cmp;
+       #   config = "require('copilot_cmp').setup()";
+       #   type = "lua";
+       # }
       ];
     };
 }

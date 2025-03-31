@@ -29,13 +29,14 @@
                 ZSH_DISABLE_COMPFIX="true"
                 export DIRENV_LOG_FORMAT="direnv: %s"
                 export PATH=$PATH:/home/sayid/go/bin
-            '';
-            initExtra = ''
+
                 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
                 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
                 pfetch
-	    '';
+            '';
+            # initExtra = ''
+            # '';
             shellAliases = {
                 nix-update = "nix flake update";
             };
