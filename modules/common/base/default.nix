@@ -97,6 +97,7 @@
       brave
       btop
       celluloid
+      dbeaver-bin
       deno
       fastfetch
       htop

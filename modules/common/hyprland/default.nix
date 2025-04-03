@@ -341,10 +341,10 @@
 
         gestures = {
           workspace_swipe = true;
-          workspace_swipe_cancel_ratio = 0.15;
-          workspace_swipe_min_speed_to_force = 5;
-          workspace_swipe_distance = 1000;
-          workspace_swipe_create_new = false;
+          workspace_swipe_cancel_ratio = 0.8;
+          workspace_swipe_min_speed_to_force = 3;
+          workspace_swipe_distance = 1200;
+          workspace_swipe_direction_lock = false;
         };
 
         cursor = {
