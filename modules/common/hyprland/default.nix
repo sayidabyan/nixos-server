@@ -112,9 +112,9 @@
           margin-bottom = 0;
           margin-left = 0;
           margin-right = 0;
-          modules-left = [ "custom/left" "custom/launcher" "hyprland/workspaces" "custom/right"];
+          modules-left = [ "custom/left" "custom/launcher" "hyprland/window" "custom/right"];
           # modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
-          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "battery" "cpu" "memory" "clock" "custom/right"];
+          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "pulseaudio/slider" "battery" "clock" "custom/right"];
           
           bluetooth = {
             "format" = "";
@@ -123,7 +123,7 @@
           };
 
           battery = {
-            format = "{icon} {capacity}%";
+            format = "{icon}  {capacity}%";
             format-icons = [" " " " " " " " " "];
             interval = 5;
             states = {
@@ -133,7 +133,7 @@
           };
 
           "hyprland/window" = {
-            max-length = 100;
+            max-length = 50;
           };
 
           clock = {
@@ -174,11 +174,19 @@
           };
 
           pulseaudio = {
-            format = "{icon}  {volume}%";
-            format-muted = "  0%";
-            format-icons = {default = ["" " " " "];};
-            scroll-step = 2;
+            format = "{icon}";
+            format-muted = " ";
+            format-icons = {default = [" " " " " "];};
+            scroll-step = 0.25;
+            reverse-scrolling = true;
             on-click = "pavucontrol";
+            tooltip-format = "{volume}%";
+          };
+
+          "pulseaudio/slider" = {
+            "min" = 0;
+            "max" = 100;
+            orientation = "horizontal";
           };
 
           "custom/launcher" = {
@@ -219,15 +227,12 @@
             font-weight: bold;
             opacity: 1;
         }
-
         window#waybar {
           background-color: transparent;
         }
-
         .module {
           margin-top: 3px;
         }
-
         #workspaces {
           font-size: 15px;
           padding-left: 5px;
@@ -235,7 +240,6 @@
           padding-bottom: 1px;
           background-color: #1e1e2e;
         }
-
         #workspaces button {
           color: #b4befe;
           padding-left: 5px;
@@ -244,10 +248,9 @@
         #workspaces button.urgent {
           color: #fab387;
         }
-
         #battery, 
         #tray, 
-        #pulseaudio, 
+        #pulseaudio,
         #cpu, 
         #memory, 
         #disk, 
@@ -261,6 +264,31 @@
           padding-left: 5px;
           padding-right: 5px;
           background-color: #1e1e2e;
+        }
+        #pulseaudio-slider{
+          font-size: 15px;
+          color: #cdd6f4;
+          padding-right: 5px;
+          background-color: #1e1e2e;
+        }
+        #pulseaudio-slider slider {
+          min-height: 0px;
+          min-width: 0px;
+          opacity: 0;
+          background-image: none;
+          border: none;
+          box-shadow: none;
+        }
+        #pulseaudio-slider trough {
+          min-height: 10px;
+          min-width: 80px;
+          border-radius: 5px;
+          background-color: black;
+        }
+        #pulseaudio-slider highlight {
+          min-width: 10px;
+          border-radius: 5px;
+          background-color: green;
         }
 
         #bluetooth.connected {
@@ -297,16 +325,6 @@
           background-color: #1e1e2e;
           margin-left: 10px;
         }
-
-        window#waybar.empty #window {
-            background-color: transparent;
-        }
-        window#waybar.empty #custom-altRight {
-            background-color: transparent;
-        }
-        window#waybar.empty #custom-altLeft {
-            background-color: transparent;
-        }
       '';
     };
 
@@ -327,7 +345,7 @@
         ];
         
         input = {
-          scroll_factor = "0.5";
+          scroll_factor = "1.5";
           follow_mouse = "1";
           touchpad = {
             natural_scroll = "1";
@@ -368,21 +386,11 @@
         decoration = {
           rounding = "10";
 
-          # drop_shadow = "false";
-          # shadow_range = "4";
-          # shadow_render_power = "3";
-          # "col.shadow" = "rgba(1a1a1aee)";
-
-          # dim_inactive = "true";
-
           blur = {
             enabled = "true";
             size = "8";
             passes = "3";
             popups = "false";
-            # too goofy looking
-            # noise = "0.05";
-            # contrast = "2";
           };
         };
 
@@ -447,8 +455,8 @@
           "$mainMod2 CTRL, J, resizeactive, 0 50"
 
           # Switch workspaces with mainMod + H/L
-          "$mainMod, H, exec, hyprnome -p -n -c"
-          "$mainMod, L, exec, hyprnome -n -c"
+          "$mainMod, H, exec, hyprnome -p -n"
+          "$mainMod, L, exec, hyprnome"
 
           # Move active window to a workspace with mainMod + SHIFT + H/L
           "$mainMod SHIFT, H, exec, hyprnome -p -m -n"
@@ -476,7 +484,7 @@
         ];
         binde = [
           # pipewire volume control
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ --limit 1.5"
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ --limit 1"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioPlay, exec, playerctl play-pause"

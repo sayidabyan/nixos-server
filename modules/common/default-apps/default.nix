@@ -39,6 +39,10 @@
         "application/x-extension-xhtml"="zen.desktop";
         "application/x-extension-xht"="zen.desktop";
         "application/pdf" = "zen.desktop";
+        "image/png" = "xviewer.desktop";
+        "image/jpeg" = "xviewer.desktop";
+        "image/webp" = "xviewer.desktop";
+        "image/gif" = "xviewer.desktop";
         "inode/directory" = [ "nemo.desktop" ];
         "application/x-gnome-saved-search" = [ "nemo.desktop" ];
       };

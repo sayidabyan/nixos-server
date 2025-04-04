@@ -92,13 +92,13 @@
   home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
   home-manager.users.sayid = { pkgs, ... }: {
     home.packages = with pkgs; [
+      aiken
       bc
       bottom
       brave
       btop
       celluloid
       dbeaver-bin
-      deno
       fastfetch
       htop
       jellyfin-media-player
@@ -108,7 +108,7 @@
       pfetch
       radeontop
       rhythmbox
-      unstable.rust-stakeholder
+      rust-stakeholder
       scrcpy
       seafile-client
       signal-desktop
@@ -120,6 +120,8 @@
       ventoy
       vesktop
       vscode-fhs
+      xviewer
+      yazi
       yt-dlp
       zed-editor
     ];
