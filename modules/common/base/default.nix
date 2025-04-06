@@ -108,7 +108,6 @@
       pfetch
       radeontop
       rhythmbox
-      rust-stakeholder
       scrcpy
       seafile-client
       signal-desktop
@@ -119,7 +118,6 @@
       unzip
       ventoy
       vesktop
-      vscode-fhs
       xviewer
       yazi
       yt-dlp
