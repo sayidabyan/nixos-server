@@ -98,6 +98,7 @@
       unstable.brave
       btop
       celluloid
+      dbeaver-bin
       fastfetch
       htop
       jellyfin-media-player
