@@ -11,6 +11,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-private.url = "github:sayidabyan/nixpkgs/zen-browser";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,6 +80,12 @@
                       system = final.system;
                       config.allowUnfree = true;
                     };
+
+                    private = import inputs.nixpkgs-private {
+                      system = final.system;
+                      config.allowUnfree = true;
+                    };
+
                     vimPlugins =
                       let
                         vimPlugin = name: final.vimUtils.buildVimPlugin {
