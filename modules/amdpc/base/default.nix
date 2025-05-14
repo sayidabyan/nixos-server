@@ -22,7 +22,7 @@
     xdg.desktopEntries = {
       brave-browser = {
         name = "Brave Web Browser";
-        exec = "/home/sayid/.nix-profile/bin/brave --enable-features=WaylandLinuxDrmSyncobj";
+        exec = "/home/sayid/.nix-profile/bin/brave --enable-features=WaylandLinuxDrmSyncobj --ozone-platform-hint=wayland";
         terminal = false;
         icon = "brave-browser";
       };
