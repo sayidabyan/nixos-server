@@ -117,7 +117,7 @@
       telegram-desktop
       transmission_4-gtk
       unzip
-      ventoy
+      vesktop
       xviewer
       yazi
       yt-dlp
