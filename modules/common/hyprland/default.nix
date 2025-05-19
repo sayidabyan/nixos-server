@@ -38,7 +38,7 @@
       };
     };
     services.mako = {
-      enable = true;
+      enable = false;
       settings = {
         font = "Quicksand 12";
         backgroundColor = "#1e1e2e";
