@@ -27,6 +27,7 @@
   fileSystems."/media/external" =
     { device = "/dev/disk/by-uuid/1b1edf70-3acb-4305-ad37-3e8cf65d2cfa";
       fsType = "ext4";
+      options = [  "users" "nofail" "exec"];
     };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

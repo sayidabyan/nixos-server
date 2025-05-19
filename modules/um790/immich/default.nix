@@ -2,9 +2,8 @@
 {
   services.immich = {
     enable = true;
-    package = pkgs.unstable.immich;
     host = "100.112.119.112";
-    mediaLocation = "/media/external/Services/immich";
+    mediaLocation = "/media/external/immich";
   };
   services.nginx.virtualHosts."photos.say.id" = {
     locations."/" = {
