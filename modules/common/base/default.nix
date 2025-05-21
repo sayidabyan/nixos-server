@@ -106,6 +106,7 @@
       neofetch
       nix-prefetch-git
       nix-prefetch
+      nvtopPackages.full
       p7zip
       pavucontrol
       pfetch
