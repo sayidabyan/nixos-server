@@ -102,6 +102,7 @@
       fastfetch
       htop
       jellyfin-media-player
+      libnotify
       neofetch
       nix-prefetch-git
       nix-prefetch

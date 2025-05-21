@@ -38,15 +38,15 @@
       };
     };
     services.mako = {
-      enable = false;
+      enable = true;
       settings = {
         font = "Quicksand 12";
-        backgroundColor = "#1e1e2e";
-        textColor = "#cdd6f4";
-        borderColor = "#b4befe";
-        borderRadius = "10";
-        progressColor = "over #313244";
-        defaultTimeout = "5000";
+        background-color = "#1e1e2e";
+        text-color = "#cdd6f4";
+        border-color = "#b4befe";
+        border-radius = "10";
+        progress-color = "over #313244";
+        default-timeout = "5000";
       };
     };
 
