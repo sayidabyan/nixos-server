@@ -3,15 +3,12 @@
 
   inputs = {
     home-manager = {
-      # url = "github:nix-community/home-manager/release-24.11";
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    # nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-private.url = "github:sayidabyan/nixpkgs/zen-browser";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,11 +74,6 @@
                 nixpkgs.overlays = [
                   (final: prev: {
                     unstable = import inputs.nixpkgs-unstable {
-                      system = final.system;
-                      config.allowUnfree = true;
-                    };
-
-                    private = import inputs.nixpkgs-private {
                       system = final.system;
                       config.allowUnfree = true;
                     };

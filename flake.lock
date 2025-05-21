@@ -142,22 +142,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-private": {
-      "locked": {
-        "lastModified": 1744482023,
-        "narHash": "sha256-JuZ+0ifHxTe/yty+ARr37zsvr5axUpEhF6JTCChN4Ws=",
-        "owner": "sayidabyan",
-        "repo": "nixpkgs",
-        "rev": "d2e0a68eefb7009e1638d7e817df7088fd505509",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sayidabyan",
-        "ref": "zen-browser",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1747485343,
@@ -230,7 +214,6 @@
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-private": "nixpkgs-private",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "winresizer-vim": "winresizer-vim",
         "zen-browser": "zen-browser"
