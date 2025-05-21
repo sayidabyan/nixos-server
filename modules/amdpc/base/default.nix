@@ -1,38 +1,38 @@
 {config, pkgs, ...}:
+let
+  lact_pkg = pkgs.callPackage ./lact.nix {};
+in
 {
+# Changed to AMD
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
   };
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    nvidiaSettings = true;
-    forceFullCompositionPipeline = true;
-    #package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
-  
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   programs.gamescope.enable = true;
   programs.steam = {
     enable = true;
-    # gamescopeSession.enable = true;
+    gamescopeSession.enable = true;
   };
-  home-manager.users.sayid = { pkgs, ... }: {
-    xdg.desktopEntries = {
-      brave-browser = {
-        name = "Brave Web Browser";
-        exec = "/home/sayid/.nix-profile/bin/brave --enable-features=WaylandLinuxDrmSyncobj --ozone-platform-hint=wayland";
-        terminal = false;
-        icon = "brave-browser";
-      };
-      vesktop = {
-        name = "Vesktop";
-        exec = "/home/sayid/.nix-profile/bin/vesktop --enable-features=WaylandLinuxDrmSyncobj --ozone-platform-hint=wayland";
-        terminal = false;
-        icon = "vesktop";
-      };
+  environment.systemPackages = with pkgs; [
+    (lact_pkg)
+  ];
+
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+  systemd.services.lactd = {
+    description = "AMDGPU Control Daemon";
+    after = ["multi-user.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${lact_pkg}/bin/lact daemon";
     };
+    enable = true;
   };
 }
