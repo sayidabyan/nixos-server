@@ -24,6 +24,10 @@
     zen-browser.url = "github:youwen5/zen-browser-flake";
     apple-silicon-support.url = "github:zzywysm/nixos-asahi";
     # apple-silicon-support.url = "github:oliverbestmann/nixos-apple-silicon";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs:
     let
@@ -32,6 +36,7 @@
           nixpkgs = inputs.nixpkgs;
           home-manager = inputs.home-manager;
           nixos-cosmic = inputs.nixos-cosmic;
+          nur = inputs.nur;
           lib = nixpkgs.lib;
           modulesInDir = dir: (lib.trivial.pipe dir [
             builtins.readDir
@@ -65,6 +70,7 @@
                # };
               }
               nixos-cosmic.nixosModules.default
+              nur.modules.nixos.default
               home-manager.nixosModules.home-manager
               {
 
