@@ -51,7 +51,6 @@
     enable = true;
     autoSuspend = false;
   };
-  # services.displayManager.cosmic-greeter.enable = true;
 
   # Fix Network Manager Error
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -112,14 +111,12 @@
       rhythmbox
       scrcpy
       seafile-client
-      unstable.signal-desktop-source
       speedtest-cli
       squashfsTools
       telegram-desktop
       transmission_4-gtk
       unzip
       ventoy
-      vesktop
       xviewer
       yazi
       yt-dlp
