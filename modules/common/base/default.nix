@@ -26,7 +26,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "Asia/Jakarta";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -96,14 +96,17 @@
       bottom
       unstable.brave
       btop
+      cava
       celluloid
       dbeaver-bin
       fastfetch
       htop
       jellyfin-media-player
+      libnotify
       neofetch
       nix-prefetch-git
       nix-prefetch
+      nvtopPackages.full
       p7zip
       pavucontrol
       pfetch
@@ -116,7 +119,7 @@
       telegram-desktop
       transmission_4-gtk
       unzip
-      ventoy
+      unstable.vesktop
       xviewer
       yazi
       yt-dlp
@@ -124,7 +127,7 @@
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.05";
 
     programs.home-manager.enable = true;
     programs.gh.enable = true;
@@ -140,5 +143,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

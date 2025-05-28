@@ -6,10 +6,6 @@
 
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
-      grim
-      grimblast
-      slurp
-      satty
       playerctl
       brightnessctl
       nwg-look
@@ -17,6 +13,8 @@
       blueman
     ];
 
+    services.flameshot.enable = true;
+    services.flameshot.package = pkgs.flameshot.override { enableWlrSupport = true; };
     services.network-manager-applet.enable = true;
     programs.fuzzel = {
       enable = true;
@@ -39,17 +37,15 @@
     };
     services.mako = {
       enable = true;
-      font = "Quicksand 12";
-      backgroundColor = "#1e1e2e";
-      textColor = "#cdd6f4";
-      borderColor = "#b4befe";
-      borderRadius = 10;
-      progressColor = "over #313244";
-      defaultTimeout = 5000;
-      extraConfig = ''
-        [urgency=high]
-        border-color=#fab387
-      '';
+      settings = {
+        font = "Quicksand 12";
+        background-color = "#1e1e2e";
+        text-color = "#cdd6f4";
+        border-color = "#b4befe";
+        border-radius = "10";
+        progress-color = "over #313244";
+        default-timeout = "5000";
+      };
     };
 
     services.hypridle = {
@@ -114,7 +110,7 @@
             color ="rgba(205, 214, 244, .75)";
             font_size = 30;
             font_family = "Quicksand";
-            position = "0, 40";
+            position = "0, 60";
             halign = "center";
             valign = "center";
           }
@@ -129,15 +125,15 @@
       settings = { 
         mainBar = {
           position = "top";
-          layer = "top";
+          layer = "bottom";
           height = 5;
           margin-top = 0;
           margin-bottom = 0;
           margin-left = 0;
           margin-right = 0;
           modules-left = [ "custom/left" "custom/launcher" "hyprland/window" "custom/right"];
-          # modules-center = ["custom/altLeft" "hyprland/window" "custom/altRight"];
-          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "pulseaudio/slider" "battery" "clock" "custom/right"];
+          modules-center = ["custom/altLeft" "hyprland/workspaces" "custom/altRight"];
+          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "pulseaudio/slider" "battery" "cpu" "memory" "clock" "custom/right"];
           
           bluetooth = {
             "format" = "";
@@ -490,12 +486,11 @@
           # "$mainMod SHIFT, K, movetoworkspace, special"
 
           # Screenshot bind
-          ", PRINT, exec, grimblast copysave screen"
-          "CTRL, PRINT, exec, grimblast copysave area"
-          "ALT, PRINT, exec, grimblast save area - | satty -f -"
-          "SHIFT, PRINT, exec, grimblast copysave active"
-
-          "$mainMod SHIFT, s, exec, grimblast copysave area"
+          # ", PRINT, exec, grimblast copysave screen"
+          # "CTRL, PRINT, exec, grimblast copysave area"
+          # "ALT, PRINT, exec, grimblast save area - | satty -f -"
+          # "SHIFT, PRINT, exec, grimblast copysave active"
+          # "$mainMod SHIFT, s, exec, grimblast copysave area"
 
           # Lock screen
           "$mainMod2, Q, exec, killall hyprlock; hyprlock "
@@ -523,10 +518,12 @@
           "$mainMod, XF86MonBrightnessDown, exec,  brightnessctl -d kbd_backlight s 20-"
         ];
         windowrulev2 = [
-          "float,class:^(steam)$"
+          # "float,class:^(steam)$"
           "float,class:^(nemo)$"
           "float,class:^(org.pulseaudio.pavucontrol)$"
           "float,class:^(.blueman-manager-wrapped)$"
+          "fullscreen,class:^steam_app\d+$"
+          "monitor 0,class:^steam_app_\d+$"
         ];
       };
     };

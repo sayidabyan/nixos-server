@@ -1,9 +1,12 @@
-{pkgs, ...}:
-
+{lib, pkgs, ...}:
 {
   users.users.sayid.shell = pkgs.zsh;
   programs.zsh.enable = true;
   home-manager.users.sayid = { pkgs, ... }: {
+    home.file.".p10k.zsh" = {
+      source = ./.p10k.zsh;
+      recursive = true;
+    };
     programs = {
         zsh = {
             enable = true;
@@ -19,7 +22,7 @@
                     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
                 }
             ];
-            initExtraFirst = ''
+            initContent = lib.mkBefore ''
                 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
                 # Initialization code that may require console input (password prompts, [y/n]
                 # confirmations, etc.) must go above this block; everything else may go below.

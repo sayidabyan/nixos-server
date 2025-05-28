@@ -5,9 +5,9 @@
   fonts.fontDir.enable = true;
   fonts = {
     packages = with pkgs; [
-      unstable.nerd-fonts.fira-code
-      unstable. nerd-fonts.fira-mono
-      unstable.nerd-fonts.symbols-only
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.symbols-only
       font-awesome 
       google-fonts 
       ipafont

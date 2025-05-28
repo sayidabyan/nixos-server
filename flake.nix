@@ -3,15 +3,12 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      # url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-private.url = "github:sayidabyan/nixpkgs/zen-browser";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +23,10 @@
     };
     zen-browser.url = "github:youwen5/zen-browser-flake";
     apple-silicon-support.url = "github:zzywysm/nixos-asahi";
-    # apple-silicon-support.url = "github:oliverbestmann/nixos-apple-silicon";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs:
     let
@@ -35,6 +35,7 @@
           nixpkgs = inputs.nixpkgs;
           home-manager = inputs.home-manager;
           nixos-cosmic = inputs.nixos-cosmic;
+          nur = inputs.nur;
           lib = nixpkgs.lib;
           modulesInDir = dir: (lib.trivial.pipe dir [
             builtins.readDir
@@ -62,12 +63,13 @@
                 environment.systemPackages = [ pkgs.git ];
               })
               {
-                nix.settings = {
-                  substituters = [ "https://cosmic.cachix.org/" ];
-                  trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                };
+               # nix.settings = {
+               #   substituters = [ "https://cosmic.cachix.org/" ];
+               #   trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+               # };
               }
               nixos-cosmic.nixosModules.default
+              nur.modules.nixos.default
               home-manager.nixosModules.home-manager
               {
 
@@ -77,11 +79,6 @@
                 nixpkgs.overlays = [
                   (final: prev: {
                     unstable = import inputs.nixpkgs-unstable {
-                      system = final.system;
-                      config.allowUnfree = true;
-                    };
-
-                    private = import inputs.nixpkgs-private {
                       system = final.system;
                       config.allowUnfree = true;
                     };
