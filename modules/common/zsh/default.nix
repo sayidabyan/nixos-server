@@ -1,9 +1,12 @@
 {lib, pkgs, ...}:
-
 {
   users.users.sayid.shell = pkgs.zsh;
   programs.zsh.enable = true;
   home-manager.users.sayid = { pkgs, ... }: {
+    home.file.".p10k.zsh" = {
+      source = ./.p10k.zsh;
+      recursive = true;
+    };
     programs = {
         zsh = {
             enable = true;

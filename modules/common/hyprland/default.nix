@@ -112,7 +112,7 @@
             color ="rgba(205, 214, 244, .75)";
             font_size = 30;
             font_family = "Quicksand";
-            position = "0, 40";
+            position = "0, 60";
             halign = "center";
             valign = "center";
           }
