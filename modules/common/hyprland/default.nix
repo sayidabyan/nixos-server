@@ -6,10 +6,6 @@
 
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
-      grim
-      grimblast
-      slurp
-      satty
       playerctl
       brightnessctl
       nwg-look
@@ -17,6 +13,8 @@
       blueman
     ];
 
+    services.flameshot.enable = true;
+    services.flameshot.package = pkgs.flameshot.override { enableWlrSupport = true; };
     services.network-manager-applet.enable = true;
     programs.fuzzel = {
       enable = true;
@@ -488,12 +486,11 @@
           # "$mainMod SHIFT, K, movetoworkspace, special"
 
           # Screenshot bind
-          ", PRINT, exec, grimblast copysave screen"
-          "CTRL, PRINT, exec, grimblast copysave area"
-          "ALT, PRINT, exec, grimblast save area - | satty -f -"
-          "SHIFT, PRINT, exec, grimblast copysave active"
-
-          "$mainMod SHIFT, s, exec, grimblast copysave area"
+          # ", PRINT, exec, grimblast copysave screen"
+          # "CTRL, PRINT, exec, grimblast copysave area"
+          # "ALT, PRINT, exec, grimblast save area - | satty -f -"
+          # "SHIFT, PRINT, exec, grimblast copysave active"
+          # "$mainMod SHIFT, s, exec, grimblast copysave area"
 
           # Lock screen
           "$mainMod2, Q, exec, killall hyprlock; hyprlock "

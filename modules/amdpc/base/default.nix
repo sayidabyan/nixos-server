@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
-let
-  lact_pkg = pkgs.callPackage ./lact.nix {};
-in
+# let
+#   lact_pkg = pkgs.callPackage ./lact.nix {};
+# in
 {
 # Changed to AMD
   hardware.graphics = {
@@ -21,20 +21,20 @@ in
     enable = true;
     gamescopeSession.enable = true;
   };
-  environment.systemPackages = with pkgs; [
-    (lact_pkg)
-  ];
+ # environment.systemPackages = with pkgs; [
+ #   (lact_pkg)
+ # ];
 
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
-  systemd.services.lactd = {
-    description = "AMDGPU Control Daemon";
-    after = ["multi-user.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      ExecStart = "${lact_pkg}/bin/lact daemon";
-    };
-    enable = true;
-  };
+ # boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+ # systemd.services.lactd = {
+ #   description = "AMDGPU Control Daemon";
+ #   after = ["multi-user.target"];
+ #   wantedBy = ["multi-user.target"];
+ #   serviceConfig = {
+ #     ExecStart = "${lact_pkg}/bin/lact daemon";
+ #   };
+ #   enable = true;
+ # };
 
-  services.power-profiles-daemon.enable = true;
+ # services.power-profiles-daemon.enable = true;
 }
