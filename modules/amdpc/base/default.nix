@@ -1,9 +1,12 @@
 {config, pkgs, ...}:
-# let
-#   lact_pkg = pkgs.callPackage ./lact.nix {};
-# in
 {
-# Changed to AMD
+  # Steam
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  programs.gamescope.enable = true;
+  # Mostly Radeon Related
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -16,25 +19,21 @@
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-  programs.gamescope.enable = true;
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
+  
+  home-manager.users.sayid = {...}: {
+    home.packages = with pkgs; [
+      unstable.lact
+    ];
   };
- # environment.systemPackages = with pkgs; [
- #   (lact_pkg)
- # ];
-
- # boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
- # systemd.services.lactd = {
- #   description = "AMDGPU Control Daemon";
- #   after = ["multi-user.target"];
- #   wantedBy = ["multi-user.target"];
- #   serviceConfig = {
- #     ExecStart = "${lact_pkg}/bin/lact daemon";
- #   };
- #   enable = true;
- # };
-
- # services.power-profiles-daemon.enable = true;
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+  systemd.services.lactd = {
+    description = "AMDGPU Control Daemon";
+    after = ["multi-user.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.unstable.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
+  services.power-profiles-daemon.enable = true;
 }
