@@ -12,7 +12,7 @@ case $SELECTION in
 	*"Reboot")
 		reboot;;
 	*"Reboot to UEFI")
-		reboot --firmware-setup;;
+		systemctl reboot --firmware-setup;;
 	*"Shutdown")
 		shutdown now;;
 esac

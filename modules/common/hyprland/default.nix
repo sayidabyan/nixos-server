@@ -11,10 +11,9 @@
       nwg-look
       hyprnome
       blueman
+      hyprshot
     ];
 
-    services.flameshot.enable = true;
-    services.flameshot.package = pkgs.flameshot.override { enableWlrSupport = true; };
     services.network-manager-applet.enable = true;
     programs.fuzzel = {
       enable = true;
@@ -486,11 +485,10 @@
           # "$mainMod SHIFT, K, movetoworkspace, special"
 
           # Screenshot bind
-          # ", PRINT, exec, grimblast copysave screen"
-          # "CTRL, PRINT, exec, grimblast copysave area"
-          # "ALT, PRINT, exec, grimblast save area - | satty -f -"
-          # "SHIFT, PRINT, exec, grimblast copysave active"
-          # "$mainMod SHIFT, s, exec, grimblast copysave area"
+          ", PRINT, exec, hyprshot --clipboard-only -s -m output"
+          "$mainMod, s, exec, hyprshot --clipboard-only -s -m region"
+          "SHIFT, PRINT, exec, hyprshot -m output -o ~/Pictures"
+          "$mainMod SHIFT, s, exec, hyprshot -m region -o ~/Pictures"
 
           # Lock screen
           "$mainMod2, Q, exec, killall hyprlock; hyprlock "
