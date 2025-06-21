@@ -486,9 +486,9 @@
 
           # Screenshot bind
           ", PRINT, exec, hyprshot --clipboard-only -s -m output"
-          "$mainMod, s, exec, hyprshot --clipboard-only -s -m region"
-          "SHIFT, PRINT, exec, hyprshot -m output -o ~/Pictures"
-          "$mainMod SHIFT, s, exec, hyprshot -m region -o ~/Pictures"
+          "$mainMod SHIFT, s, exec, hyprshot --clipboard-only -s -m region"
+          "CTRL, PRINT, exec, hyprshot -m output -o ~/Pictures"
+          "$mainMod CTRL, s, exec, hyprshot -m region -o ~/Pictures"
 
           # Lock screen
           "$mainMod2, Q, exec, killall hyprlock; hyprlock "
