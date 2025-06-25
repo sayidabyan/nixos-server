@@ -10,6 +10,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    package = pkgs.unstable.mesa;
     extraPackages = with pkgs; [
       amdvlk
     ];

@@ -7,13 +7,12 @@
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-    options hid_apple fnmode=1 iso_layout=0 
+    options hid_apple fnmode=1 iso_layout=0
   '';
   security.polkit.enable = true;
 
@@ -119,6 +118,8 @@
       telegram-desktop
       transmission_4-gtk
       unzip
+      unigine-heaven
+      unigine-superposition
       unstable.vesktop
       xviewer
       yazi
