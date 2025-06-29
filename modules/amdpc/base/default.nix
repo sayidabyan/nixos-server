@@ -24,6 +24,8 @@
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
       unstable.lact
+      protonup-qt
+      steam-rom-manager
     ];
   };
   boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];

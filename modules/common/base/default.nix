@@ -109,7 +109,6 @@
       p7zip
       pavucontrol
       pfetch
-      radeontop
       rhythmbox
       scrcpy
       seafile-client
@@ -118,8 +117,6 @@
       telegram-desktop
       transmission_4-gtk
       unzip
-      unigine-heaven
-      unigine-superposition
       unstable.vesktop
       xviewer
       yazi
