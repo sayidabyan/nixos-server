@@ -491,7 +491,7 @@
           "$mainMod CTRL, s, exec, hyprshot -m region -o ~/Pictures"
 
           # Lock screen
-          "$mainMod2, Q, exec, killall hyprlock; hyprlock "
+          "$mainMod2, Q, exec, killall hyprlock; hyprlock"
         ];
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [

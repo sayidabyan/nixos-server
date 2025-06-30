@@ -39,4 +39,10 @@
     enable = true;
   };
   services.power-profiles-daemon.enable = true;
+
+  # udev rules for dualsense
+  services.udev.extraRules = ''
+    # PS5 DualSense controller over USB hidraw
+    ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+  '';
 }
