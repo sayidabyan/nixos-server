@@ -12,10 +12,10 @@
     enable32Bit = true;
     package = pkgs.unstable.mesa;
     extraPackages = with pkgs; [
-      amdvlk
+      unstable.amdvlk
     ];
     extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
+      unstable.driversi686Linux.amdvlk
     ];
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
