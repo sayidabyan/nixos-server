@@ -3,6 +3,7 @@
   # Steam
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
   };
   programs.gamescope.enable = true;
   # Mostly Radeon Related
@@ -10,12 +11,6 @@
     enable = true;
     enable32Bit = true;
     package = pkgs.unstable.mesa;
-    extraPackages = with pkgs; [
-      unstable.amdvlk
-    ];
-    extraPackages32 = with pkgs; [
-      unstable.driversi686Linux.amdvlk
-    ];
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -37,7 +32,6 @@
     };
     enable = true;
   };
-  services.power-profiles-daemon.enable = true;
 
   # udev rules for dualsense
   services.udev.extraRules = ''

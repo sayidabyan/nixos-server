@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/e80f686b-0184-4390-8d31-b7debc5be1fe";
@@ -33,12 +33,6 @@
     options = [  "users" "nofail" "exec"];
   };
  
-  fileSystems."/mnt/sda1" = {
-    device = "/dev/disk/by-uuid/9ec112f6-e742-431b-bfbf-aa06abff5ccf";
-    fsType = "ext4";
-    options = [ "users" "nofail" "exec"];
-  };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

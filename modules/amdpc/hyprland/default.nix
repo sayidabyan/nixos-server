@@ -19,15 +19,6 @@
 
         "$mainMod" = "ALT";
         "$mainMod2" = "SUPER";
-
-        #env = [
-        #  "LIBVA_DRIVER_NAME,nvidia"
-        #  "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        #];
-        #render = {
-        #  explicit_sync = 1;
-        #  explicit_sync_kms = 1;
-        #};
       };
     };
   };

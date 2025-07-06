@@ -12,7 +12,6 @@
   ];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-    options hid_apple fnmode=1 iso_layout=0
   '';
   security.polkit.enable = true;
 
@@ -29,18 +28,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-#  i18n.extraLocaleSettings = {
-#   LC_ADDRESS = "en_US.UTF-8";
-#   LC_IDENTIFICATION = "en_US.UTF-8";
-#   LC_MEASUREMENT = "en_US.UTF-8";
-#   LC_MONETARY = "en_US.UTF-8";
-#   LC_NAME = "en_US.UTF-8";
-#   LC_NUMERIC = "en_US.UTF-8";
-#   LC_PAPER = "en_US.UTF-8";
-#   LC_TELEPHONE = "en_US.UTF-8";
-#   LC_TIME = "en_US.UTF-8";
-# };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -98,6 +85,7 @@
       cava
       celluloid
       dbeaver-bin
+      discord
       fastfetch
       htop
       jellyfin-media-player
@@ -107,6 +95,7 @@
       nix-prefetch
       nvtopPackages.full
       p7zip
+      parsec-bin
       pavucontrol
       pfetch
       rhythmbox
