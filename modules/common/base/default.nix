@@ -100,7 +100,6 @@
       pfetch
       rhythmbox
       scrcpy
-      seafile-client
       speedtest-cli
       squashfsTools
       telegram-desktop
