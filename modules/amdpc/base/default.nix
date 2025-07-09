@@ -20,6 +20,7 @@
       unstable.lact
       protonup-qt
       steam-rom-manager
+      unigine-heaven
     ];
   };
   boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
