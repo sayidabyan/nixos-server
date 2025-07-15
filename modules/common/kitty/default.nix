@@ -10,7 +10,8 @@
       package = pkgs.kitty;
       font.name = "Firacode Nerd Font";
       settings = {
-        background_opacity = "0.8";
+        background = "#000000";
+        background_opacity = "0.6";
         resize_debounce_time = "0";
         touch_scroll_multiplier = "10.0";
       };

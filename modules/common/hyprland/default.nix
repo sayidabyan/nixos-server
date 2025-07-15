@@ -1,5 +1,10 @@
 {pkgs, ...}:
 {
+  imports = 
+    [
+      ./fuzzel.nix
+    ];
+
   programs.hyprland = {
     enable = true;
   };
@@ -12,41 +17,10 @@
       hyprnome
       blueman
       hyprshot
+      hyprpicker
     ];
-
-    services.network-manager-applet.enable = true;
-    programs.fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          terminal = "/home/sayid/.nix-profile/bin/kitty";
-          font = "Quicksand:weight=medium:size=12";
-          icon-theme = "Papirus-Dark";
-        };
-        colors = {
-          background="1e1e2eff";
-          text="cdd6f4ff";
-          match="b4befeff";
-          selection="585b70ff";
-          selection-match="b4befeff";
-          selection-text="cdd6f4ff";
-          border="b4befeff";
-        };
-      };
-    };
-    services.mako = {
-      enable = true;
-      settings = {
-        font = "Quicksand 12";
-        background-color = "#1e1e2e";
-        text-color = "#cdd6f4";
-        border-color = "#b4befe";
-        border-radius = "10";
-        progress-color = "over #313244";
-        default-timeout = "5000";
-      };
-    };
-
+    
+    #-----Hyprapps-----
     services.hypridle = {
       enable = true;
       settings = {
@@ -69,6 +43,16 @@
         ];
       };
     };
+
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        preload = [
+          "/home/sayid/nixos/bg/path less traveled.jpg"
+        ];
+      };
+    };
+
     programs.hyprlock = {
       enable = true;
       settings = {
@@ -77,7 +61,7 @@
         };
         background = [
           {
-            path = "/home/sayid/nixos/bg/Sakura Festival.jpg";
+            path = "/home/sayid/nixos/bg/path less traveled.jpg";
             blur_passes = 3;
             blur_size = 8;
           }
@@ -102,7 +86,6 @@
             valign = "center";
           }
         ];
-        # Hour-Time
         label = [
           {
             text = "$USER";
@@ -117,243 +100,7 @@
 
       };
     };
-    programs.waybar = {
-      enable = true;
-      package = pkgs.waybar;
-      systemd.enable = true;
-      settings = { 
-        mainBar = {
-          position = "top";
-          layer = "bottom";
-          height = 5;
-          margin-top = 0;
-          margin-bottom = 0;
-          margin-left = 0;
-          margin-right = 0;
-          modules-left = [ "custom/left" "custom/launcher" "hyprland/window" "custom/right"];
-          modules-center = ["custom/altLeft" "hyprland/workspaces" "custom/altRight"];
-          modules-right = ["custom/left" "tray" "bluetooth" "pulseaudio" "pulseaudio/slider" "battery" "cpu" "memory" "clock" "custom/right"];
-          
-          bluetooth = {
-            "format" = "";
-            "interval" = 5;
-            "on-click" = "blueman-manager";
-          };
 
-          battery = {
-            format = "{icon}  {capacity}%";
-            format-icons = [" " " " " " " " " "];
-            interval = 5;
-            states = {
-              "warning" = 30;
-              "critical" = 15;
-            };
-          };
-
-          "hyprland/window" = {
-            max-length = 50;
-          };
-
-          clock = {
-            format = "{:%a %d %b, %H:%M}";
-            format-alt = "  {:%H:%M}";
-          };
-
-          "hyprland/workspaces" = {
-            active-only = false;
-            disable-scroll = true;
-            format = "{icon}";
-            on-click = "activate";
-            format-icons = {
-              active = "●";
-              default = "○";
-              special = "⦿";
-              urgent = "●";
-              sort-by-number = true;
-            };
-          };
-
-          memory = {
-            format = "  {}%";
-            format-alt = "  {used} GB";
-            interval = 2;
-          };
-
-          cpu = {
-            format = "  {usage}%";
-            format-alt = "  {avg_frequency} GHz";
-            interval = 2;
-          };
-
-          tray = {
-            icon-size = 20;
-            spacing = 8;
-            reverse-direction = true;
-          };
-
-          pulseaudio = {
-            format = "{icon}";
-            format-muted = " ";
-            format-icons = {default = [" " " " " "];};
-            scroll-step = 0.25;
-            reverse-scrolling = true;
-            on-click = "pavucontrol";
-            tooltip-format = "{volume}%";
-          };
-
-          "pulseaudio/slider" = {
-            "min" = 0;
-            "max" = 100;
-            orientation = "horizontal";
-          };
-
-          "custom/launcher" = {
-            format = "";
-            on-click = "pkill fuzzel || ~/nixos/modules/common/hyprland/fuzzel/fuzzel-powermenu.sh";
-            tooltip = "false";
-          };
-          "custom/left"= {
-              "format"= " ";
-              "interval" = "once";
-              "tooltip"= false;
-          };
-          "custom/right"= {
-              "format"= " ";
-              "interval" = "once";
-              "tooltip"= false;
-          };
-          "custom/altLeft"= {
-              "format"= " ";
-              "interval" = "once";
-              "tooltip"= false;
-          };
-          "custom/altRight"= {
-              "format"= " ";
-              "interval" = "once";
-              "tooltip"= false;
-          };
-        };
-      };
-      style = ''
-        * {
-            border: none;
-            border-radius: 0px;
-            padding: 0;
-            margin: 0;
-            min-height: 0px;
-            font-family: Quicksand, Firacode Nerd Font;
-            font-weight: bold;
-            opacity: 1;
-        }
-        window#waybar {
-          background-color: transparent;
-        }
-        .module {
-          margin-top: 3px;
-        }
-        #workspaces {
-          font-size: 15px;
-          padding-left: 5px;
-          padding-right: 5px;
-          padding-bottom: 1px;
-          background-color: #1e1e2e;
-        }
-        #workspaces button {
-          color: #b4befe;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-        #workspaces button.urgent {
-          color: #fab387;
-        }
-        #battery, 
-        #tray, 
-        #pulseaudio,
-        #cpu, 
-        #memory, 
-        #disk, 
-        #clock, 
-        #custom-launcher, 
-        #window,
-        #bluetooth
-        {
-          font-size: 15px;
-          color: #cdd6f4;
-          padding-left: 5px;
-          padding-right: 5px;
-          background-color: #1e1e2e;
-        }
-        #pulseaudio-slider{
-          font-size: 15px;
-          color: #cdd6f4;
-          padding-right: 5px;
-          background-color: #1e1e2e;
-        }
-        #pulseaudio-slider slider {
-          min-height: 0px;
-          min-width: 0px;
-          opacity: 0;
-          background-image: none;
-          border: none;
-          box-shadow: none;
-        }
-        #pulseaudio-slider trough {
-          min-height: 10px;
-          min-width: 80px;
-          border-radius: 5px;
-          background-color: black;
-        }
-        #pulseaudio-slider highlight {
-          min-width: 10px;
-          border-radius: 5px;
-          background-color: green;
-        }
-
-        #bluetooth.connected {
-          color: #a6e3a1;
-        }
-
-        #bluetooth.off{
-          color: #6c7086;
-        }
-
-        #battery.charging {
-          color: #a6e3a1;
-        }
-        #batter.warning {
-          color: #f9e2af;
-        }
-        #batter.critical {
-          color: #f38ba8;
-        }
-
-        #custom-launcher {
-          font-size: 18px;
-          color: #b4befe;
-          font-weight: bold;
-        }
-        #custom-right, #custom-altRight {
-          border-radius: 0px 15px 15px 0px;
-          background-color: #1e1e2e;
-          margin-right: 10px;
-        }
-
-        #custom-left, #custom-altLeft{
-          border-radius: 15px 0px 0px 15px;
-          background-color: #1e1e2e;
-          margin-left: 10px;
-        }
-      '';
-    };
-
-    services.hyprpaper = {
-      enable = true;
-      settings = {
-        preload = [
-          "/home/sayid/nixos/bg/Sakura Festival.jpg"
-        ];
-      };
-    };
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -389,21 +136,18 @@
         };
         
         exec-once = [
-          # "waybar"
           "hyprctl setcursor Bibata-Modern-Ice 24"
         ];
 
         general = {
-          gaps_in = "3";
-          gaps_out = "3";
+          gaps_in = "5";
+          gaps_out = "5";
           border_size = "2";
-          "col.active_border" = "rgb(b4befe)";
+          "col.active_border" = "rgb(b5bfe2)";
           layout = "dwindle";
         };
 
         decoration = {
-          rounding = "10";
-
           blur = {
             enabled = "true";
             size = "8";
@@ -440,7 +184,7 @@
         };
           
         bind = [
-          "$mainMod, T, exec, kitty"
+          "$mainMod, T, exec, ghostty"
           "$mainMod, Q, killactive" 
           # "$mainMod, R, exit"
           "$mainMod, V, togglefloating" 

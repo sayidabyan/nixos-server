@@ -43,8 +43,8 @@
       iconTheme = {
         name = "Papirus";
         package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "mocha";
-          accent = "lavender";
+          flavor = "frappe";
+          accent = "blue";
         };
       };
       cursorTheme = {
@@ -53,11 +53,11 @@
         size = 24;
       };
       theme = {
-        name = "catppuccin-mocha-lavender-standard";
+        name = "catppuccin-frappe-blue-standard";
         package = pkgs.catppuccin-gtk.override {
-          accents = ["lavender"];
+          accents = ["blue"];
           size  = "standard";
-          variant = "mocha";
+          variant = "frappe";
         };
       };
       gtk3.extraConfig = {
@@ -78,7 +78,7 @@
     };
     dconf.settings = {
       "org/gnome/desktop/background" = {
-        picture-uri-dark = "/home/sayid/nixos/bg/Sakura Festival.jpg";
+        picture-uri-dark = "/home/sayid/nixos/bg/Path Less Traveled.jpg";
       };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";

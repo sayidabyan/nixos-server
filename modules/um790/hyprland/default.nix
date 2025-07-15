@@ -5,7 +5,7 @@
     services.hyprpaper = {
       settings = {
         wallpaper = [
-          "HDMI-A-1, /home/sayid/nixos/bg/Sakura Festival.jpg"
+          "HDMI-A-1, /home/sayid/nixos/bg/Path Less Traveled.jpg"
         ];
       };
     };

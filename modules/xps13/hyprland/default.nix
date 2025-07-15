@@ -5,7 +5,7 @@
     services.hyprpaper = {
       settings = {
         wallpaper = [
-          "eDP-1, /home/sayid/nixos/bg/Sakura Festival.jpg"
+          "eDP-1, /home/sayid/nixos/bg/Path Less Traveled.jpg"
         ];
       };
     };

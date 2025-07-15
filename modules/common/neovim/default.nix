@@ -157,7 +157,7 @@
         plugin = catppuccin-nvim;
         type = "lua";
         config = ''
-          vim.cmd('colorscheme catppuccin-mocha')
+          vim.cmd('colorscheme catppuccin-frappe')
         '';
       }
       {
