@@ -1,5 +1,4 @@
 { config, pkgs, ...}:
-
 {
   # Fonts
   fonts.fontDir.enable = true;
@@ -41,11 +40,8 @@
         size = 11;
       };
       iconTheme = {
-        name = "Papirus";
-        package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "frappe";
-          accent = "blue";
-        };
+        name = "Papirus-dark";
+        package = pkgs.papirus-icon-theme;
       };
       cursorTheme = {
         name = "Bibata-Modern-Ice";
@@ -53,11 +49,10 @@
         size = 24;
       };
       theme = {
-        name = "catppuccin-frappe-blue-standard";
-        package = pkgs.catppuccin-gtk.override {
-          accents = ["blue"];
-          size  = "standard";
-          variant = "frappe";
+        name = "Matcha-dark-azul";
+        package = pkgs.matcha-gtk-theme.override {
+          colorVariants = ["dark"];
+          themeVariants = ["azul"];
         };
       };
       gtk3.extraConfig = {

@@ -11,13 +11,13 @@
 
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
-      playerctl
-      brightnessctl
-      nwg-look
-      hyprnome
       blueman
-      hyprshot
+      brightnessctl
+      hyprnome
       hyprpicker
+      hyprshot
+      nwg-look
+      playerctl
     ];
     
     #-----Hyprapps-----
@@ -101,6 +101,80 @@
       };
     };
 
+    programs.hyprpanel = {
+        enable = true;
+        systemd.enable = true;
+        settings = {
+          "bar.layouts" = {
+            "*" = {
+              left = ["dashboard" "windowtitle"];
+              middle = ["workspaces"];
+              right = ["volume" "network" "bluetooth" "systray" "clock" "notifications"];
+            };
+          };
+          bar = {
+            autoHide = "never";
+            layer = "overlay";
+            location = "top";
+          };
+          theme.bar = {
+            background = "#000000";
+            opacity = 60;
+            scaling = 80;
+            buttons.background_opacity = 0;
+            buttons.monochrome = true;
+            buttons.text = "#ffffff";
+            buttons.icon = "#ffffff";
+            menus.menu.bluetooth.scaling = 80;
+            menus.menu.clock.scaling = 80;
+            menus.menu.dashboard.scaling = 80;
+            menus.menu.dashboard.confirmation_scaling = 80;
+            menus.menu.media.scaling = 80;
+            menus.monochrome = true;
+            menus.menu.notifications.scaling = 80;
+            menus.menu.volume.scaling = 80;
+            menus.popover.scaling = 80;
+            buttons.workspaces = {
+              occupied = "#ffffff";
+              active = "#ffffff";
+              hover = "#ffffff";
+            };
+          };
+          notifications.position = "overlay";
+          theme.osd.scaling = 80;
+          theme.tooltip.scaling = 80;
+          theme.notification.scaling = 80;
+          bar.launcher.autoDetectIcon = false;
+          bar.launcher.icon = "󱄅 ";
+          # bar.launcher.icon = "󰣇_󰣇";
+          theme.bar.floating = false;
+          bar.clock.format = "%a %b %d  %I:%M";
+          bar.media.show_active_only = false;
+          bar.notifications.show_total = true;
+          menus.dashboard.controls.enabled = true;
+          menus.dashboard.shortcuts.enabled = true;
+          menus.dashboard.shortcuts.right.shortcut1.command = "gcolor3";
+          menus.media.displayTime = true;
+          bar.volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          bar.volume.middleClick = "pavucontrol";
+          bar.media.format = "{title}";
+          # bar.workspaces.show_icons = true;
+          bar.workspaces.show_numbered = false;
+          bar.workspaces.ignored = "[-99]";
+          theme.font.name = "Quicksand";
+          theme.font.size = "1.1rem";
+          bar.workspaces.monitorSpecific = true;
+          bar.workspaces.workspaces = 3;
+          menus.clock = {
+            time = {
+              hideSeconds = true;
+            };
+            weather.unit = "metric";
+          };
+          menus.dashboard.directories.enabled = false;
+        };
+      };
+
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -143,16 +217,18 @@
           gaps_in = "5";
           gaps_out = "5";
           border_size = "2";
-          "col.active_border" = "rgb(b5bfe2)";
+          "col.active_border" = "rgb(ffffff)";
           layout = "dwindle";
         };
 
         decoration = {
           blur = {
-            enabled = "true";
-            size = "8";
-            passes = "3";
-            popups = "false";
+            enabled = true;
+            passes = "2";
+            xray = true;
+          };
+          shadow = {
+            enabled = false;
           };
         };
 
@@ -266,6 +342,10 @@
           "float,class:^(.blueman-manager-wrapped)$"
           "fullscreen,class:^steam_app\d+$"
           "monitor 0,class:^steam_app_\d+$"
+        ];
+        layerrule = [
+          "blur, bar-0"
+          "blur, bar-1"
         ];
       };
     };

@@ -13,6 +13,7 @@
         gtk-single-instance = true;
         quit-after-last-window-closed = false;
         resize-overlay = "never";
+        confirm-close-surface = false;
       };
     };
   };
