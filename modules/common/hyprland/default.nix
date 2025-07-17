@@ -102,78 +102,168 @@
     };
 
     programs.hyprpanel = {
-        enable = true;
-        systemd.enable = true;
-        settings = {
-          "bar.layouts" = {
-            "*" = {
-              left = ["dashboard" "windowtitle"];
-              middle = ["workspaces"];
-              right = ["volume" "network" "bluetooth" "systray" "clock" "notifications"];
+      enable = true;
+      systemd.enable = true;
+      settings = {
+        bar.layouts = {
+          "*" = {
+            left = ["dashboard" "windowtitle"];
+            middle = ["workspaces"];
+            right = ["volume" "network" "bluetooth" "systray" "clock" "notifications"];
+          };
+        };
+        bar = {
+          autoHide = false;
+          layer = "overlay";
+          location = "top";
+          launcher.icon = "󱄅";
+          clock.format = "%a %b %d  %I:%M";
+          notifications.show_total = true;
+          volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          volume.middleClick = "pavucontrol";
+          media.format = "{title}";
+          workspaces.monitorSpecific = true;
+          workspaces.reverse_scroll = true;
+        };
+        notifications = {
+          position = "top right";
+          showActionsOnHover = true;
+        };
+        menus.transition = "none";
+        menus.clock = {
+          time = {
+            hideSeconds = true;
+            military = true;
+          };
+          weather = {
+            enabled = false;
+          };
+        };
+        menus.dashboard = {
+          controls.enabled = true;
+          shortcuts.enabled = false;
+          directories.enabled = false;
+          powermenu.avatar.image = "~/nixos/pp/ggpp.jpg";
+        };
+        theme.bar = {
+          background = "#000000";
+          opacity = 60;
+          scaling = 80;
+          buttons.background_opacity = 0;
+          buttons.monochrome = true;
+          buttons.text = "#ffffff";
+          buttons.icon = "#ffffff";
+          buttons.workspaces = {
+            occupied = "#ffffff";
+            active = "#ffffff";
+            hover = "#ffffff";
+          };
+          menus = {
+            monochrome = true;
+            cards = "#22252C";
+            card_radius = 0;
+            background = "#1B1D24";
+            text = "#FFFFFF";
+            dimtext = "#AFB4BA";
+            feinttext = "#AFB4BA";
+            label = "#FFFFFF";
+            border = {
+              size = 0;
+              radius = 0;
+              color = "#FFFFFF";
+            };
+            popover = {
+              radius = 0;
+              text = "#FFFFFF";
+              background = "#22252C";
+            };
+            buttons = {
+              default = "#FFFFFF";
+              disabled = "#AFB4BA";
+              text = "#1B1D24";
+            };
+            menu = {
+              bluetooth.scaling = 80;
+              clock.scaling = 80;
+              dashboard.scaling = 80;
+              dashboard.confirmation_scaling = 80;
+              media.scaling = 80;
+              notifications.scaling = 80;
+              volume.scaling = 80;
+              popover.scaling = 80;
+            };
+            progressbar = {
+              foreground = "#FFFFFF";
+              background = "#1B1D24";
+              backgroundhover = "#1B1D24";
+            };
+            slider = {
+              primary = "#FFFFFF";
+              background = "#1B1D24";
+              backgroundhover = "#1B1D24";
+              puck = "#AFB4BA";
+            };
+            listitems = {
+              active = "#AFB4BA";
+            };
+            iconbuttons = {
+              active = "#FFFFFF";
+              passive = "#AFB4BA";
+            };
+            icons = {
+              active = "#FFFFFF";
+            };
+            switch = {
+              enabled = "#FFFFFF";
+              disabled = "#1B1D24";
+              puck = "#AFB4BA";
+            };
+            check_radio_button = {
+              background = "#1B1D24";
+              active = "#AFB4BA";
+            };
+            dropdownmenu = {
+              text = "#FFFFFF";
+              divider = "#AFB4BA";
+            };
+            tooltip = {
+              background = "#1B1D24";
+              text = "#FFFFFF";
             };
           };
-          bar = {
-            autoHide = "never";
-            layer = "overlay";
-            location = "top";
+        };
+        theme.osd = {
+          scaling = 80;
+          label = "#FFFFFF";
+          icon_container = "#FFFFFF";
+          icon = "#1B1D24";
+          bar_color = "#FFFFFF";
+          bar_container = "#22252C";
+          bar_empty_color = "#1B1D24";
+        };
+        theme.notification = {
+          scaling = 80;
+          background = "#22252C";
+          text = "#AFB4BA";
+          label = "#FFFFFF";
+          border = "#22252C";
+          time = "#AFB4BA";
+          actions = {
+            background = "#FFFFFF";
+            text = "#1B1D24";
           };
-          theme.bar = {
-            background = "#000000";
-            opacity = 60;
-            scaling = 80;
-            buttons.background_opacity = 0;
-            buttons.monochrome = true;
-            buttons.text = "#ffffff";
-            buttons.icon = "#ffffff";
-            menus.menu.bluetooth.scaling = 80;
-            menus.menu.clock.scaling = 80;
-            menus.menu.dashboard.scaling = 80;
-            menus.menu.dashboard.confirmation_scaling = 80;
-            menus.menu.media.scaling = 80;
-            menus.monochrome = true;
-            menus.menu.notifications.scaling = 80;
-            menus.menu.volume.scaling = 80;
-            menus.popover.scaling = 80;
-            buttons.workspaces = {
-              occupied = "#ffffff";
-              active = "#ffffff";
-              hover = "#ffffff";
-            };
+          close_button = {
+            background = "#FFFFFF";
+            label = "#1B1D24";
           };
-          notifications.position = "overlay";
-          theme.osd.scaling = 80;
-          theme.tooltip.scaling = 80;
-          theme.notification.scaling = 80;
-          bar.launcher.autoDetectIcon = false;
-          bar.launcher.icon = "󱄅 ";
-          # bar.launcher.icon = "󰣇_󰣇";
-          theme.bar.floating = false;
-          bar.clock.format = "%a %b %d  %I:%M";
-          bar.media.show_active_only = false;
-          bar.notifications.show_total = true;
-          menus.dashboard.controls.enabled = true;
-          menus.dashboard.shortcuts.enabled = true;
-          menus.dashboard.shortcuts.right.shortcut1.command = "gcolor3";
-          menus.media.displayTime = true;
-          bar.volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          bar.volume.middleClick = "pavucontrol";
-          bar.media.format = "{title}";
-          # bar.workspaces.show_icons = true;
-          bar.workspaces.show_numbered = false;
-          bar.workspaces.ignored = "[-99]";
-          theme.font.name = "Quicksand";
-          theme.font.size = "1.1rem";
-          bar.workspaces.monitorSpecific = true;
-          bar.workspaces.workspaces = 3;
-          menus.clock = {
-            time = {
-              hideSeconds = true;
-            };
-            weather.unit = "metric";
-          };
-          menus.dashboard.directories.enabled = false;
+        };
+        theme.tooltip.scaling = 80;
+        theme.font = {
+          name = "Quicksand";
+          size = "1.1rem";
         };
       };
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -225,7 +315,6 @@
           blur = {
             enabled = true;
             passes = "2";
-            xray = true;
           };
           shadow = {
             enabled = false;
@@ -344,8 +433,7 @@
           "monitor 0,class:^steam_app_\d+$"
         ];
         layerrule = [
-          "blur, bar-0"
-          "blur, bar-1"
+          "blur, bar-.*"
         ];
       };
     };
