@@ -89,7 +89,7 @@
         label = [
           {
             text = "$USER";
-            color ="rgba(205, 214, 244, .75)";
+            color ="rgba(255, 255, 255, 1)";
             font_size = 30;
             font_family = "Quicksand";
             position = "0, 60";
@@ -109,7 +109,7 @@
           "*" = {
             left = ["dashboard" "windowtitle"];
             middle = ["workspaces"];
-            right = ["volume" "network" "bluetooth" "systray" "clock" "notifications"];
+            right = ["systray" "volume" "network" "bluetooth" "clock" "notifications"];
           };
         };
         bar = {
@@ -117,7 +117,7 @@
           layer = "overlay";
           location = "top";
           launcher.icon = "󱄅";
-          clock.format = "%a %b %d  %I:%M";
+          clock.format = "%a, %b %d  %H:%M";
           notifications.show_total = true;
           volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
           volume.middleClick = "pavucontrol";

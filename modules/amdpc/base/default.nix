@@ -6,6 +6,14 @@
     gamescopeSession.enable = true;
   };
   programs.gamescope.enable = true;
+
+  boot.kernelParams = [ 
+    "amdgpu.ppfeaturemask=0xffffffff" # enable radeon oc control(?)
+    # fix nic/ethernet issue (?)
+    "pcie_port_pm=off"
+    "pcie_aspm.policy=performance"
+  ];
+
   # Mostly Radeon Related
   hardware.graphics = {
     enable = true;
@@ -23,7 +31,6 @@
       unigine-heaven
     ];
   };
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
     after = ["multi-user.target"];
