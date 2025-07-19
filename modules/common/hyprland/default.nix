@@ -7,6 +7,8 @@
 
   programs.hyprland = {
     enable = true;
+    package = pkgs.unstable.hyprland;
+    portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
   };
 
   home-manager.users.sayid = {...}: {
@@ -268,6 +270,8 @@
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+      package = pkgs.unstable.hyprland;
+      portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
       settings = {
         env =  [
           "ELECTRON_OZONE_PLATFORM_HINT, wayland" 
@@ -341,6 +345,7 @@
           disable_splash_rendering = true;
           mouse_move_enables_dpms = true;
           new_window_takes_over_fullscreen = 1;
+          session_lock_xray = true;
         };
          
         dwindle = {

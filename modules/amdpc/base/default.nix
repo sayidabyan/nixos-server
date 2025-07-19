@@ -3,9 +3,33 @@
   # Steam
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;
+    package = pkgs.steam;
   };
-  programs.gamescope.enable = true;
+  programs.gamescope = {
+    enable = true;
+    package = pkgs.gamescope;
+  };
+  programs.gamemode = {
+    enable = true;
+    settings = 
+    {
+      general = {
+        renice = 10;
+      };
+
+      # Warning: GPU optimisations have the potential to damage hardware
+      gpu = {
+        apply_gpu_optimisations = "accept-responsibility";
+        gpu_device = 0;
+        amd_performance_level = "high";
+      };
+
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
 
   boot.kernelParams = [ 
     "amdgpu.ppfeaturemask=0xffffffff" # enable radeon oc control(?)
@@ -19,6 +43,7 @@
     enable = true;
     enable32Bit = true;
     package = pkgs.unstable.mesa;
+    extraPackages = with pkgs; [rocmPackages.clr.icd];
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -29,6 +54,7 @@
       protonup-qt
       steam-rom-manager
       unigine-heaven
+      mangohud
     ];
   };
   systemd.services.lactd = {
