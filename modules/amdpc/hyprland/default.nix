@@ -19,6 +19,10 @@
 
         "$mainMod" = "ALT";
         "$mainMod2" = "SUPER";
+
+        exec-once = [
+          "xrandr --output [DP-1] --primary"
+        ];
       };
     };
   };

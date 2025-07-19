@@ -45,6 +45,7 @@
     package = pkgs.unstable.mesa;
     extraPackages = with pkgs; [rocmPackages.clr.icd];
   };
+  chaotic.mesa-git.enable = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   
@@ -54,6 +55,7 @@
       protonup-qt
       steam-rom-manager
       unigine-heaven
+      unigine-superposition
       mangohud
     ];
   };

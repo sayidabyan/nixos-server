@@ -11,6 +11,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,6 +117,7 @@
         amdpc = [
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+          inputs.chaotic.nixosModules.default
         ];
         mbam2 = [
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd

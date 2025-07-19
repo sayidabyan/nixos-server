@@ -4,7 +4,6 @@
     enable = true;
     wlr.enable = true;
     extraPortals = with pkgs;[
-      xdg-desktop-portal-gtk
       unstable.xdg-desktop-portal-hyprland
     ];
   };
@@ -19,7 +18,6 @@
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs;[
-        xdg-desktop-portal-gtk
         unstable.xdg-desktop-portal-hyprland
       ];
       config.common.default = "*";
