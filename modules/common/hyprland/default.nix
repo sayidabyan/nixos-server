@@ -331,7 +331,6 @@
 
         cursor = {
           enable_hyprcursor = true;
-          no_hardware_cursors = true;
         };
         
         exec-once = [
@@ -385,7 +384,7 @@
         };
           
         bind = [
-          "$mainMod, T, exec, ghostty"
+          "$mainMod, T, exec, kitty"
           "$mainMod, Q, killactive" 
           # "$mainMod, R, exit"
           "$mainMod, V, togglefloating" 

@@ -10,9 +10,6 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
   security.polkit.enable = true;
 
   networking.hostName = "nixos-${device}"; # Define your hostname.
@@ -84,6 +81,7 @@
       btop
       cava
       celluloid
+      unstable.cider-2
       dbeaver-bin
       discord
       fastfetch
@@ -109,7 +107,6 @@
       xviewer
       yazi
       yt-dlp
-      zed-editor
     ];
     home.username = "sayid";
     home.homeDirectory = "/home/sayid";
@@ -127,6 +124,10 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
+  };
+
+  programs.obs-studio = {
+    enable = true;
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
