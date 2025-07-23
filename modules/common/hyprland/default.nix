@@ -142,7 +142,7 @@
           "*" = {
             left = ["dashboard" "windowtitle"];
             middle = ["workspaces"];
-            right = ["systray" "volume" "network" "bluetooth" "clock" "notifications"];
+            right = ["systray" "media" "volume" "network" "bluetooth" "clock" "notifications"];
           };
         };
         bar = {
@@ -154,7 +154,7 @@
           notifications.show_total = true;
           volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
           volume.middleClick = "pavucontrol";
-          media.format = "{title}";
+          media.format = "{title} - {artist}";
           workspaces.monitorSpecific = true;
           workspaces.reverse_scroll = true;
         };
@@ -221,6 +221,7 @@
               dashboard.scaling = 80;
               dashboard.confirmation_scaling = 80;
               media.scaling = 80;
+              media.card.color = "#22252C";
               notifications.scaling = 80;
               volume.scaling = 80;
               popover.scaling = 80;
