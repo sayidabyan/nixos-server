@@ -140,8 +140,8 @@
       settings = {
         bar.layouts = {
           "*" = {
-            left = ["dashboard" "windowtitle"];
-            middle = ["workspaces"];
+            left = ["dashboard" "workspaces" "windowtitle"];
+            middle = [];
             right = ["systray" "media" "volume" "network" "bluetooth" "clock" "notifications"];
           };
         };
@@ -154,7 +154,7 @@
           notifications.show_total = true;
           volume.rightClick = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
           volume.middleClick = "pavucontrol";
-          media.format = "{title} - {artist}";
+          media.format = "{title}";
           workspaces.monitorSpecific = true;
           workspaces.reverse_scroll = true;
         };
