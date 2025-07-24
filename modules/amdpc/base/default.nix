@@ -27,11 +27,11 @@
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
       unstable.lact
+      mangohud
       unstable.protonplus
       steam-rom-manager
       unigine-heaven
       unigine-superposition
-      mangohud
     ];
   };
   systemd.services.lactd = {
@@ -49,7 +49,4 @@
     # PS5 DualSense controller over USB hidraw
     ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
   '';
-
-  # Enable firmware regardless of licenses
-  hardware.enableAllFirmware = true;
 }
