@@ -190,6 +190,7 @@
             occupied = "#ffffff";
             active = "#ffffff";
             hover = "#ffffff";
+            available = "#AFB4BA";
           };
           menus = {
             monochrome = true;
@@ -308,7 +309,7 @@
         env =  [
           "ELECTRON_OZONE_PLATFORM_HINT, wayland" 
         ];
-        
+
         input = {
           scroll_factor = "1.5";
           follow_mouse = "1";
@@ -384,6 +385,17 @@
           preserve_split = true;
         };
           
+        workspace = [
+          "1, monitor:DP-1, persistent:true"
+          "2, monitor:DP-1, persistent:true"
+          "3, monitor:DP-1, persistent:true"
+          "4, monitor:DP-1, persistent:true"
+          "5, monitor:DP-2, persistent:true"
+          "6, monitor:DP-2, persistent:true"
+          "7, monitor:DP-2, persistent:true"
+          "8, monitor:DP-2, persistent:true"
+        ];
+        
         bind = [
           "$mainMod, T, exec, kitty"
           "$mainMod, Q, killactive" 
@@ -418,12 +430,16 @@
           "$mainMod2 CTRL, J, resizeactive, 0 50"
 
           # Switch workspaces with mainMod + H/L
-          "$mainMod, H, exec, hyprnome -p -n"
-          "$mainMod, L, exec, hyprnome"
+          "$mainMod, H, workspace, m-1"
+          "$mainMod, L, workspace, m+1"
+          #"$mainMod, H, exec, hyprnome -p -n"
+          #"$mainMod, L, exec, hyprnome"
 
           # Move active window to a workspace with mainMod + SHIFT + H/L
-          "$mainMod SHIFT, H, exec, hyprnome -p -m -n"
-          "$mainMod SHIFT, L, exec, hyprnome -m"
+          "$mainMod SHIFT, H, movetoworkspace, m-1"
+          "$mainMod SHIFT, L, movetoworkspace, m+1"
+          #"$mainMod SHIFT, H, exec, hyprnome -p -m -n"
+          #"$mainMod SHIFT, L, exec, hyprnome -m"
 
           # Special workspace
           # "$mainMod, K, togglespecialworkspace"
