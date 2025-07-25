@@ -12,12 +12,14 @@
         };
         colors = {
           background="00000099";
-          text="c6d0f5ff";
+          input="ffffffff";
+          prompt = "ffffffff";
+          text="ffffffff";
           match="8caaeeff";
           selection="737994ff";
           selection-text="c6d0f5ff";
           selection-match="8caaeeff";
-          border="b5bfe2ff";
+          border="ffffffff";
         };
         border={
           width=2;
