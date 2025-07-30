@@ -30,6 +30,7 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
   outputs = inputs:
     let
@@ -40,6 +41,8 @@
           nixos-cosmic = inputs.nixos-cosmic;
           nur = inputs.nur;
           lib = nixpkgs.lib;
+          nix-flatpak = inputs.nix-flatpak;
+          chaotic = inputs.chaotic;
           modulesInDir = dir: (lib.trivial.pipe dir [
             builtins.readDir
             (lib.attrsets.filterAttrs (key: val: val == "directory"))
@@ -74,6 +77,8 @@
               nixos-cosmic.nixosModules.default
               nur.modules.nixos.default
               home-manager.nixosModules.home-manager
+              nix-flatpak.nixosModules.nix-flatpak 
+              chaotic.nixosModules.default
               {
 
                 # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
@@ -117,7 +122,6 @@
         amdpc = [
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
-          inputs.chaotic.nixosModules.default
         ];
         mbam2 = [
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd

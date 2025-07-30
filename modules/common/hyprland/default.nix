@@ -305,11 +305,28 @@
       xwayland.enable = true;
       package = pkgs.unstable.hyprland;
       portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+      # plugins = [
+      #  pkgs.unstable.hyprlandPlugins.hypr-dynamic-cursors
+      #];
       settings = {
         env =  [
           "ELECTRON_OZONE_PLATFORM_HINT, wayland" 
         ];
-
+       # plugin = {
+       #   dynamic-cursors = {
+       #     enabled = true;
+       #     mode = "none";
+       #     shake ={
+       #       enabled = true;
+       #       nearest = true;
+       #       limit = 4.0;
+       #     };
+       #     hyprcursors = {
+       #       enabled = true;
+       #       nearest = true;
+       #     };
+       #   };
+       # };
         input = {
           scroll_factor = "1.5";
           follow_mouse = "1";

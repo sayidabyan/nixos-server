@@ -43,6 +43,8 @@
         "image/gif" = "xviewer.desktop";
         "inode/directory" = [ "nemo.desktop" ];
         "application/x-gnome-saved-search" = [ "nemo.desktop" ];
+        "video/x-matroska" =["io.github.celluloid_player.Celluloid.desktop"];
+        "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
       };
       associations.added = {
         "x-scheme-handler/http"="zen.desktop";
@@ -56,6 +58,8 @@
         "application/x-extension-xhtml"="zen.desktop";
         "application/x-extension-xht"="zen.desktop";
         "application/pdf" = "zen.desktop";
+        "video/x-matroska" = ["io.github.celluloid_player.Celluloid.desktop"];
+        "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
       };
     };
     xdg.userDirs = {

@@ -52,6 +52,7 @@
     # PS5 DualSense controller over USB hidraw
     ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
   '';
+  hardware.enableAllFirmware = true;
 
   services.ollama = {
     enable = true;
