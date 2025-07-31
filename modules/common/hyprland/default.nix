@@ -137,6 +137,7 @@
     programs.hyprpanel = {
       enable = true;
       systemd.enable = true;
+      package = pkgs.unstable.hyprpanel;
       settings = {
         bar.layouts = {
           "*" = {
