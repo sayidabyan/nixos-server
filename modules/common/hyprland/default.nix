@@ -141,9 +141,9 @@
       settings = {
         bar.layouts = {
           "*" = {
-            left = ["dashboard" "workspaces" "windowtitle"];
-            middle = [];
-            right = ["media" "systray" "volume" "network" "bluetooth" "clock" "notifications"];
+            left = ["dashboard" "windowtitle"];
+            middle = ["workspaces"];
+            right = [ "systray" "volume" "network" "bluetooth" "clock" "notifications"];
           };
         };
         bar = {

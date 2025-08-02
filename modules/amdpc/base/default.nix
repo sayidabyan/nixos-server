@@ -3,7 +3,7 @@
   # Steam
   programs.steam = {
     enable = true;
-    package = pkgs.steam;
+    package = pkgs.unstable.steam;
   };
 
   boot.kernelParams = [ 
