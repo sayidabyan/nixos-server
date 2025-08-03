@@ -78,7 +78,9 @@
               nur.modules.nixos.default
               home-manager.nixosModules.home-manager
               nix-flatpak.nixosModules.nix-flatpak 
-              chaotic.nixosModules.default
+              chaotic.nixosModules.nyx-cache
+              chaotic.nixosModules.nyx-overlay
+              chaotic.nixosModules.nyx-registry
               {
 
                 # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
@@ -90,7 +92,6 @@
                       system = final.system;
                       config.allowUnfree = true;
                     };
-
                     vimPlugins =
                       let
                         vimPlugin = name: final.vimUtils.buildVimPlugin {

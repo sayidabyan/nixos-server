@@ -17,12 +17,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    package = pkgs.unstable.mesa;
-    extraPackages = with pkgs; [unstable.rocmPackages.clr.icd];
-  };
-  chaotic.mesa-git = {
-    enable = true;
-    extraPackages = with pkgs; [unstable.rocmPackages.clr.icd];
+    package = pkgs.mesa_git;
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
