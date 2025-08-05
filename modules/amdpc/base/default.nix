@@ -13,6 +13,8 @@
     "pcie_aspm.policy=performance"
   ];
 
+  boot.kernelModules = [ "kvm-amd" "ntsync" ];
+
   # Mostly Radeon Related
   hardware.graphics = {
     enable = true;
