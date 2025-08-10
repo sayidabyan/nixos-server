@@ -27,6 +27,7 @@
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
       unstable.lact
+      unstable.lmstudio
       mangohud
       unstable.protonplus
       steam-rom-manager
@@ -50,11 +51,9 @@
     ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
   '';
   hardware.enableAllFirmware = true;
-
   services.ollama = {
     enable = true;
     package = pkgs.unstable.ollama;
-    acceleration = "rocm";
     host = "0.0.0.0";
   };
   services.nginx.virtualHosts."ollama.say.id" = {
@@ -71,3 +70,4 @@
     };
   };
 }
+

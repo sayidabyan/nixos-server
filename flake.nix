@@ -3,14 +3,15 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      # url = "github:nix-community/home-manager/master";
+      # url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-bleeding.url = "github:nixos/nixpkgs/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
@@ -89,6 +90,10 @@
                 nixpkgs.overlays = [
                   (final: prev: {
                     unstable = import inputs.nixpkgs-unstable {
+                      system = final.system;
+                      config.allowUnfree = true;
+                    };
+                    bleeding = import inputs.nixpkgs-bleeding {
                       system = final.system;
                       config.allowUnfree = true;
                     };

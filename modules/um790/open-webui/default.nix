@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
   services.open-webui = {
-    enable = true;
+    enable = false;
     host = "100.112.119.112";
     package = pkgs.unstable.open-webui;
     port = 8081;
