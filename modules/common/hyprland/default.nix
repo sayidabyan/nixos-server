@@ -7,8 +7,8 @@
 
   programs.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
-    portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   # services.greetd.enable = true;
@@ -137,7 +137,7 @@
     programs.hyprpanel = {
       enable = true;
       systemd.enable = true;
-      package = pkgs.unstable.hyprpanel;
+      package = pkgs.hyprpanel;
       settings = {
         bar.layouts = {
           "*" = {
@@ -304,10 +304,10 @@
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-      package = pkgs.unstable.hyprland;
-      portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
       # plugins = [
-      #  pkgs.unstable.hyprlandPlugins.hypr-dynamic-cursors
+      #  pkgs.hyprlandPlugins.hypr-dynamic-cursors
       #];
       settings = {
         env =  [

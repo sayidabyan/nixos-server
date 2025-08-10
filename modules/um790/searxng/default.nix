@@ -2,7 +2,7 @@
 {
   services.searx = {
     enable = true;
-    package = pkgs.unstable.searxng;
+    package = pkgs.searxng;
     redisCreateLocally = true;
     environmentFile = /home/sayid/.secrets/.searxng.env;
     settings = {

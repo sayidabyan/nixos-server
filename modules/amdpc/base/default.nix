@@ -3,7 +3,7 @@
   # Steam
   programs.steam = {
     enable = true;
-    package = pkgs.unstable.steam;
+    package = pkgs.steam;
   };
 
   boot.kernelParams = [ 
@@ -26,10 +26,11 @@
   
   home-manager.users.sayid = {...}: {
     home.packages = with pkgs; [
-      unstable.lact
-      unstable.lmstudio
+      cider-2
+      lact
+      lmstudio
       mangohud
-      unstable.protonplus
+      protonplus
       steam-rom-manager
       unigine-heaven
       unigine-superposition
@@ -40,7 +41,7 @@
     after = ["multi-user.target"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "${pkgs.unstable.lact}/bin/lact daemon";
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
     };
     enable = true;
   };
@@ -53,7 +54,7 @@
   hardware.enableAllFirmware = true;
   services.ollama = {
     enable = true;
-    package = pkgs.unstable.ollama;
+    package = pkgs.ollama;
     host = "0.0.0.0";
   };
   services.nginx.virtualHosts."ollama.say.id" = {

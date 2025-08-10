@@ -41,7 +41,6 @@
       lspkind-nvim
       luasnip
       editor-integration-nvim
-
       {
         plugin = lualine-nvim;
         type = "lua";

@@ -5,7 +5,7 @@
       chromium = {
         enable = true;
         commandLineArgs = [ "--ozone-platform=wayland" ];
-        package = pkgs.unstable.chromium.override { enableWideVine = true; };
+        package = pkgs.chromium.override { enableWideVine = true; };
       };
     };
   };

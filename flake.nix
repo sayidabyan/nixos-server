@@ -10,7 +10,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-bleeding.url = "github:nixos/nixpkgs/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
     nixos-cosmic = {
@@ -89,7 +89,7 @@
 
                 nixpkgs.overlays = [
                   (final: prev: {
-                    unstable = import inputs.nixpkgs-unstable {
+                    stable = import inputs.nixpkgs-stable {
                       system = final.system;
                       config.allowUnfree = true;
                     };

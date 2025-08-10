@@ -1,9 +1,9 @@
 {pkgs, ...}:
 {
   services.open-webui = {
-    enable = false;
+    enable = true;
     host = "100.112.119.112";
-    package = pkgs.unstable.open-webui;
+    package = pkgs.open-webui;
     port = 8081;
     environment = {
       OLLAMA_API_BASE_URL= "http://ollama.say.id";

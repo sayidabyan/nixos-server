@@ -77,10 +77,9 @@
       aiken
       bc
       bottom
-      unstable.brave
+      brave
       btop
       cava
-      unstable.cider-2
       dbeaver-bin
       discord
       fastfetch
@@ -102,7 +101,7 @@
       telegram-desktop
       transmission_4-gtk
       unzip
-      unstable.vesktop
+      vesktop
       xviewer
       yazi
       yt-dlp

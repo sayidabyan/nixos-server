@@ -4,6 +4,10 @@
     enable = true;
     dataDir = "/media/external/jellyfin";
   };
+  users.users.jellyfin.extraGroups = [
+    "render"
+    "video"
+  ]; # Access to /dev/dri
 
   services.nginx.virtualHosts."media.say.id" = {
     locations."/" = {

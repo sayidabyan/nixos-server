@@ -3,7 +3,7 @@
   home-manager.users.sayid = {...}: {
     programs.ghostty = {
       enable = true;
-      package = pkgs.unstable.ghostty;
+      package = pkgs.ghostty;
       enableZshIntegration = true;
       settings = {
         font-family = "Firacode Nerd Font";

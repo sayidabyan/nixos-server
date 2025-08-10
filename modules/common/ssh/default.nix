@@ -1,6 +1,7 @@
 {...}:
 {
     programs.ssh.askPassword = "";
+    programs.mosh.enable = true;
     services.openssh = {
         enable = true;
         ports = [31475];

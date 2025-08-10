@@ -4,6 +4,7 @@
     enable = true;
     host = "100.112.119.112";
     mediaLocation = "/media/external/immich";
+    package = pkgs.immich;
   };
   services.nginx.virtualHosts."photos.say.id" = {
     locations."/" = {
