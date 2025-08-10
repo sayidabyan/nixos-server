@@ -3,7 +3,7 @@
   environment.etc."nextcloud-admin-pass".text = "sayidsayid";
   services.nextcloud = {
     enable = true;
-    package = pkgs.stable.nextcloud31;
+    package = pkgs.nextcloud31;
     home = "/media/external/nextcloud";
     maxUploadSize = "10G";
     hostName = "nix-nextcloud";
