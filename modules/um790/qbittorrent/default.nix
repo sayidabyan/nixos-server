@@ -1,18 +1,16 @@
 {...}:
 {
-  services.jellyfin = {
+  services.qbittorrent = {
     enable = true;
-    dataDir = "/media/external/jellyfin";
-    openFirewall = true;
+    profileDir = "/media/external";
+    webuiPort = 9091;
+    user = "sayid";
+    group = "users";
   };
-  users.users.jellyfin.extraGroups = [
-    "render"
-    "video"
-  ]; # Access to /dev/dri
 
-  services.nginx.virtualHosts."media.say.id" = {
+  services.nginx.virtualHosts."torrent.say.id" = {
     locations."/" = {
-      proxyPass = "http://100.112.119.112:8096";
+      proxyPass = "http://100.112.119.112:9091";
       proxyWebsockets = true;
       recommendedProxySettings = true;
       extraConfig = ''
