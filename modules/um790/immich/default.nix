@@ -5,6 +5,9 @@
     host = "100.112.119.112";
     mediaLocation = "/media/external/immich";
     package = pkgs.immich;
+    accelerationDevices = [
+      "/dev/dri/renderD129"
+    ];
   };
   services.nginx.virtualHosts."photos.say.id" = {
     locations."/" = {

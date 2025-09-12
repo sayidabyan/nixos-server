@@ -3,7 +3,6 @@
   services.searx = {
     enable = true;
     package = pkgs.searxng;
-    redisCreateLocally = true;
     environmentFile = /home/sayid/.secrets/.searxng.env;
     settings = {
       # Server configuration

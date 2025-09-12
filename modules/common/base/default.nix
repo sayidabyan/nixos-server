@@ -29,12 +29,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the Desktop Environment/ Display Manager.
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    autoSuspend = false;
-  };
-
   # Fix Network Manager Error
   systemd.services.NetworkManager-wait-online.enable = false;
 
