@@ -3,20 +3,14 @@
 
   inputs = {
     home-manager = {
-      # url = "github:nix-community/home-manager/release-25.05";
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-bleeding.url = "github:nixos/nixpkgs/master";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     editor-integration-nvim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
@@ -26,12 +20,6 @@
       flake = false;
     };
     zen-browser.url = "github:youwen5/zen-browser-flake";
-    apple-silicon-support.url = "github:zzywysm/nixos-asahi";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
   outputs = inputs:
     let
@@ -39,11 +27,7 @@
         let
           nixpkgs = inputs.nixpkgs;
           home-manager = inputs.home-manager;
-          nixos-cosmic = inputs.nixos-cosmic;
-          nur = inputs.nur;
           lib = nixpkgs.lib;
-          nix-flatpak = inputs.nix-flatpak;
-          chaotic = inputs.chaotic;
           modulesInDir = dir: (lib.trivial.pipe dir [
             builtins.readDir
             (lib.attrsets.filterAttrs (key: val: val == "directory"))
@@ -69,27 +53,17 @@
                 # Required for nixos-rebuild with flakes
                 environment.systemPackages = [ pkgs.git ];
               })
-              {
-               # nix.settings = {
-               #   substituters = [ "https://cosmic.cachix.org/" ];
-               #   trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-               # };
-              }
-              nixos-cosmic.nixosModules.default
-              nur.modules.nixos.default
               home-manager.nixosModules.home-manager
-              nix-flatpak.nixosModules.nix-flatpak 
-              chaotic.nixosModules.nyx-cache
-              chaotic.nixosModules.nyx-overlay
-              chaotic.nixosModules.nyx-registry
               {
-
                 # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
                 nix.registry.nixpkgs.flake = inputs.nixpkgs;
-
                 nixpkgs.overlays = [
                   (final: prev: {
                     stable = import inputs.nixpkgs-stable {
+                      system = final.system;
+                      config.allowUnfree = true;
+                    };
+                    unstable = import inputs.nixpkgs-unstable {
                       system = final.system;
                       config.allowUnfree = true;
                     };
@@ -121,17 +95,6 @@
           inputs.nixos-hardware.nixosModules.common-gpu-amd
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
-        ];
-        xps13 = [
-          inputs.nixos-hardware.nixosModules.dell-xps-13-9370
-        ];
-        amdpc = [
-          inputs.nixos-hardware.nixosModules.common-cpu-amd
-          inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
-        ];
-        mbam2 = [
-          inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
-          inputs.apple-silicon-support.nixosModules.default
         ];
       };
     };

@@ -75,27 +75,21 @@
       btop
       cava
       dbeaver-bin
-      discord
       fastfetch
       htop
-      jellyfin-media-player
       libnotify
       neofetch
       nix-prefetch-git
       nix-prefetch
       nvtopPackages.full
       p7zip
-      parsec-bin
       pavucontrol
       pfetch
-      rhythmbox
       scrcpy
       speedtest-cli
       squashfsTools
-      telegram-desktop
       transmission_4-gtk
       unzip
-      vesktop
       xviewer
       yazi
       yt-dlp
