@@ -1,7 +1,8 @@
-{...}:
+{pkgs, ...}:
 {
   services.jellyfin = {
     enable = true;
+    package = pkgs.unstable.jellyfin;
     dataDir = "/media/external/jellyfin";
     openFirewall = true;
   };

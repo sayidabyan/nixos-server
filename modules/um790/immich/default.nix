@@ -4,11 +4,15 @@
     enable = true;
     host = "100.112.119.112";
     mediaLocation = "/media/external/immich";
-    package = pkgs.immich;
+    package = pkgs.unstable.immich;
     accelerationDevices = [
       "/dev/dri/renderD129"
     ];
   };
+  users.users.immich.extraGroups = [
+    "render"
+    "video"
+  ]; # Access to /dev/dri
   services.nginx.virtualHosts."photos.say.id" = {
     locations."/" = {
       proxyPass = "http://100.112.119.112:${toString config.services.immich.port}";
