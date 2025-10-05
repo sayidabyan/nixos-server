@@ -37,7 +37,7 @@
         enable = true;
       };
       amdgpuBusId = "PCI:197@0:0:0";															 
-      nvidiaBusId = "PCI:103@0:0:0";																	#           0a:00.0 VGA compatible controller: NVIDIA Corporation TU116 [GeForce GTX 1650 SUPER] (rev a1) - with dock
+      nvidiaBusId = "PCI:103@0:0:0";
     };
   };
 }
