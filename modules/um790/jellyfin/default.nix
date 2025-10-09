@@ -13,7 +13,7 @@
 
   services.nginx.virtualHosts."media.say.id" = {
     locations."/" = {
-      proxyPass = "http://100.112.119.112:8096";
+      proxyPass = "http://127.0.0.1:8096";
       proxyWebsockets = true;
       recommendedProxySettings = true;
       extraConfig = ''

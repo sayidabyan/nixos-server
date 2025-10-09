@@ -2,20 +2,19 @@
 {
   services.immich = {
     enable = true;
-    host = "100.112.119.112";
+    host = "127.0.0.1";
     mediaLocation = "/media/external/immich";
     package = pkgs.unstable.immich;
-    accelerationDevices = [
-      "/dev/dri/renderD129"
-    ];
+    accelerationDevices = null;
   };
   users.users.immich.extraGroups = [
     "render"
     "video"
   ]; # Access to /dev/dri
+
   services.nginx.virtualHosts."photos.say.id" = {
     locations."/" = {
-      proxyPass = "http://100.112.119.112:${toString config.services.immich.port}";
+      proxyPass = "http://127.0.0.1:${toString config.services.immich.port}";
       proxyWebsockets = true;
       recommendedProxySettings = true;
       extraConfig = ''
