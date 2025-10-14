@@ -1,26 +1,16 @@
-{...}:
+{ inputs, pkgs, ...}:
 {
-  users.users.memos = {
-    isSystemUser = true;
-    uid = 5230;
-    group = "memos";
-  };
-  users.groups.memos = {
-    gid = 5230;
+  imports = [
+    (inputs.nixpkgs-unstable + "/nixos/modules/services/misc/memos.nix")
+  ];
+
+  services.postgresql.enable = true;
+  services.memos = {
+    enable = true;
+    package = pkgs.unstable.memos;
+    dataDir = "/media/external/memos";
   };
 
-  virtualisation.oci-containers.containers.memos = {
-    serviceName = "memos";
-    image = "neosmemo/memos:stable";
-    # ports = [ "0.0.0.0:5230:5230" ];
-    volumes = [ "/media/external/memos:/var/opt/memos" ];
-    environment = {
-      MEMOS_MODE = "prod";
-      MEMOS_PORT = "5230";
-    };
-    user = "5230:5230";
-    extraOptions = ["--network=host"];
-  };
   services.nginx.virtualHosts."memos.say.id" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:5230";
